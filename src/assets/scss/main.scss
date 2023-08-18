@@ -1,0 +1,38 @@
+// Font Family
+// @font-face {
+//   font-family: 'Dancing Script';
+//   src: url('./../font/DancingScript-Regular.ttf');
+// }
+* {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.84rem;
+}
+
+// Font Size
+.fs-xxsmall {
+  font-size: 0.65rem;
+}
+.fs-xsmall {
+  font-size: 0.7rem;
+}
+.fs-small {
+  font-size: 0.75rem;
+}
+.fs-medium {
+  font-size: 0.8rem;
+}
+.fs-large {
+  font-size: 0.9rem;
+}
+.fs-xlarge {
+  font-size: 1rem;
+}
+.fs-xxlarge {
+  font-size: 1.1rem;
+}
+
+// Button common styles
+.v-btn {
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
