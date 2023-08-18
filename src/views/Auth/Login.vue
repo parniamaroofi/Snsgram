@@ -4,19 +4,25 @@
       <!-- Login card -->
       <div class="login-box py-3 px-9 sm:border border-gray-300">
         <!-- Card title -->
-        <h3 class="brand-title text-center font-bold mt-4">Snsgram</h3>
+        <h3 class="brand-title font-bold text-center mt-3">Snsgram</h3>
         <!-- Card form  -->
         <div class="mt-10">
-          <TextField :placeholder="'Phone number, username or email address'" :hideDetails="true" />
-
           <TextField
+            :modelValue="username"
+            @update="(newVal) => (username = newVal)"
+            :placeholder="'Phone number, username or email address'"
+            :hideDetails="true"
+          />
+          <TextField
+            :modelValue="password"
+            @update="(newVal) => (password = newVal)"
             :placeholder="'Password'"
             :hideDetails="true"
             :type="'password'"
-            class="mt-4"
+            class="mt-3"
           />
 
-          <v-btn color="primary lighten-2" block class="my-6 rounded-lg">Log in</v-btn>
+          <Button :color="'primary lighten-2'" :block="true" :text="'Log in'" class="my-6" />
         </div>
         <!-- Card divider -->
         <div class="d-flex justify-space-between">
@@ -38,7 +44,8 @@
       </div>
       <!-- Sign up card -->
       <div class="login-box py-5 mt-md-3 mt-8 sm:border border-gray-300 text-center">
-        <span>Don't have an account?</span> <b class="primary--text">Sign up</b>
+        <span>Don't have an account?</span>
+        <b class="primary--text cursor-pointer ml-1" @click="$router.push('/signup')">Sign up</b>
       </div>
     </div>
   </div>
@@ -46,15 +53,20 @@
 
 <script>
 import TextField from '@/components/TextField.vue';
+import Button from '@/components/Button.vue';
 export default {
   name: 'SnsgramLogin',
 
   components: {
+    Button,
     TextField,
   },
 
   data() {
-    return {};
+    return {
+      username: '',
+      password: '',
+    };
   },
 
   mounted() {},
