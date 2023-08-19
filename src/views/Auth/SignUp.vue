@@ -1,5 +1,5 @@
 <template>
-  <div class="signUp h-screen w-screen d-flex align-center justify-center">
+  <div class="signUp w-screen d-flex align-center justify-center">
     <div class="d-flex flex-column">
       <!-- SignUp card -->
       <div class="signUp-box py-3 px-9 sm:border border-gray-300">
@@ -64,7 +64,13 @@
             People who use our service may have uploaded your contact information to Instagram.
           </p>
 
-          <v-btn color="primary lighten-2" block class="mt-3 mb-1 rounded-lg">Sign Up</v-btn>
+          <v-btn
+            color="primary lighten-2"
+            :block="true"
+            :disabled="computedDisabled"
+            class="mt-3 mb-1 rounded-lg"
+            >Sign Up</v-btn
+          >
         </div>
       </div>
       <div class="signUp-box py-5 mt-md-3 mt-8 sm:border border-gray-300 text-center">
@@ -98,6 +104,14 @@ export default {
   mounted() {},
 
   methods: {},
+
+  computed: {
+    computedDisabled() {
+      if (!this.contactInfo || !this.fullName || !this.username || !this.password) {
+        return true;
+      } else return false;
+    },
+  },
 };
 </script>
 
@@ -107,6 +121,7 @@ export default {
   src: url('./../../assets/font/DancingScript-Regular.ttf');
 }
 .signUp {
+  height: 100dvh;
   &-box {
     width: 360px;
 

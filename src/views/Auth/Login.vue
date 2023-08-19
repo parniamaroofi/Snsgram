@@ -1,5 +1,5 @@
 <template>
-  <div class="login h-screen w-screen d-flex align-center justify-center">
+  <div class="login w-screen d-flex align-center justify-center">
     <div class="d-flex flex-column">
       <!-- Login card -->
       <div class="login-box py-3 px-9 sm:border border-gray-300">
@@ -22,7 +22,15 @@
             class="mt-3"
           />
 
-          <Button :color="'primary lighten-2'" :block="true" :text="'Log in'" class="my-6" />
+          <Button
+            :color="'primary lighten-2'"
+            :block="true"
+            :text="'Log in'"
+            :disabled="!username || !password"
+            :loading="loading"
+            @click.native="doLogin()"
+            class="my-6"
+          />
         </div>
         <!-- Card divider -->
         <div class="d-flex justify-space-between">
@@ -39,7 +47,12 @@
         </div>
         <!-- Password recovery -->
         <div class="mt-5">
-          <p class="text-center fs-small mb-3 text-gray-600">Forgotten your password?</p>
+          <p
+            class="text-center fs-small mb-3 text-gray-600 cursor-pointer"
+            @click="$router.push('/passRecovery')"
+          >
+            Forgotten your password?
+          </p>
         </div>
       </div>
       <!-- Sign up card -->
@@ -66,12 +79,20 @@ export default {
     return {
       username: '',
       password: '',
+      loading: false,
     };
   },
 
   mounted() {},
 
-  methods: {},
+  methods: {
+    doLogin() {
+      this.loading = true;
+      setTimeout(() => {
+        this.loading = false;
+      }, 1000);
+    },
+  },
 };
 </script>
 
@@ -81,6 +102,7 @@ export default {
   src: url('./../../assets/font/DancingScript-Regular.ttf');
 }
 .login {
+  height: 100dvh;
   &-box {
     width: 360px;
 

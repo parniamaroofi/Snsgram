@@ -1,7 +1,13 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+// PAGES
+
+// Auth
 import Login from '../views/Auth/Login.vue';
 import SignUp from '../views/Auth/SignUp.vue';
+import PassRecovery from '../views/Auth/PassRecovery.vue';
+
+// General
 import HomePage from '../views/HomePage.vue';
 
 Vue.use(VueRouter);
@@ -11,7 +17,7 @@ const router = new VueRouter({
   base: import.meta.env.BASE_URL,
   routes: [
     {
-      path: '/',
+      path: '/homePage',
       name: 'home',
       component: HomePage,
     },
@@ -25,14 +31,12 @@ const router = new VueRouter({
       name: 'signup',
       component: SignUp,
     },
-    // {
-    //   path: '/about',
-    //   name: 'about',
-    //   // route level code-splitting
-    //   // this generates a separate chunk (About.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () => import('../views/AboutView.vue'),
-    // },
+    {
+      path: '/passRecovery',
+      name: 'passRecovery',
+      component: PassRecovery,
+    },
+    { path: '/', redirect: '/login' },
   ],
 });
 
