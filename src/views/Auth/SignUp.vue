@@ -31,33 +31,33 @@
           <TextField
             :modelValue="contactInfo"
             @update="(newVal) => (contactInfo = newVal)"
-            :placeholder="'Phone number or email address'"
+            :label="'Phone number or email address'"
             :hideDetails="true"
           />
 
           <TextField
             :modelValue="fullName"
             @update="(newVal) => (fullName = newVal)"
-            :placeholder="'Full Name'"
+            :label="'Full Name'"
             :hideDetails="true"
-            class="mt-2"
+            class="mt-3"
           />
 
           <TextField
             :modelValue="username"
             @update="(newVal) => (username = newVal)"
-            :placeholder="'Username'"
+            :label="'Username'"
             :hideDetails="true"
-            class="mt-2"
+            class="mt-3"
           />
 
           <TextField
             :modelValue="password"
             @update="(newVal) => (password = newVal)"
-            :placeholder="'Password'"
+            :label="'Password'"
             :hideDetails="true"
             :type="'password'"
-            class="mt-2"
+            class="mt-3"
           />
 
           <p class="fs-small text-gray-600 text-center mt-3">
@@ -82,8 +82,8 @@
 </template>
 
 <script>
-import TextField from '@/components/TextField.vue';
-import Button from '@/components/Button.vue';
+import TextField from '@/components/microComponents/TextField.vue';
+import Button from '@/components/microComponents/Button.vue';
 export default {
   name: 'SnsgramSignUp',
 

@@ -2,8 +2,9 @@
   <div class="TextField_Outlined">
     <v-text-field
       outlined
-      :placeholder="placeholder ? placeholder : 'Placeholder'"
+      :placeholder="placeholder ? placeholder : undefined"
       :hide-details="hideDetails ? hideDetails : false"
+      :label="label ? label : undefined"
       :type="type ? type : 'text'"
       v-model="value"
       @input="$emit('update', value)"
@@ -13,7 +14,7 @@
 
 <script>
 export default {
-  props: ['placeholder', 'hideDetails', 'type', 'modelValue'],
+  props: ['placeholder', 'hideDetails', 'label', 'type', 'modelValue'],
   data() {
     return {
       value: this.modelValue,
@@ -43,6 +44,10 @@ export default {
           color: grey !important;
         }
       }
+    }
+    .v-label:not(.v-label--active) {
+      transform: translateY(-5px) scale(0.75);
+      max-width: none !important;
     }
   }
 }

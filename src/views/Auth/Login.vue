@@ -10,13 +10,13 @@
           <TextField
             :modelValue="username"
             @update="(newVal) => (username = newVal)"
-            :placeholder="'Phone number, username or email address'"
+            :label="'Phone number, username or email address'"
             :hideDetails="true"
           />
           <TextField
             :modelValue="password"
             @update="(newVal) => (password = newVal)"
-            :placeholder="'Password'"
+            :label="'Password'"
             :hideDetails="true"
             :type="'password'"
             class="mt-3"
@@ -65,8 +65,8 @@
 </template>
 
 <script>
-import TextField from '@/components/TextField.vue';
-import Button from '@/components/Button.vue';
+import TextField from '@/components/microComponents/TextField.vue';
+import Button from '@/components/microComponents/Button.vue';
 export default {
   name: 'SnsgramLogin',
 

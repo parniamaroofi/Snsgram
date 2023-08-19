@@ -20,7 +20,7 @@
           <TextField
             :modelValue="contactInfo"
             @update="(newVal) => (contactInfo = newVal)"
-            :placeholder="'Phone number, username or email address'"
+            :label="'Phone number, username or email address'"
             :hideDetails="true"
           />
 
@@ -58,8 +58,8 @@
 </template>
 
 <script>
-import TextField from '@/components/TextField.vue';
-import Button from '@/components/Button.vue';
+import TextField from '@/components/microComponents/TextField.vue';
+import Button from '@/components/microComponents/Button.vue';
 export default {
   name: 'SnsgramPassRecovery',
 
