@@ -2,6 +2,9 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 // PAGES
 
+// Container
+import DefaultContainer from '../containers/DefaultContainer.vue';
+
 // Auth
 import Login from '../views/Auth/Login.vue';
 import SignUp from '../views/Auth/SignUp.vue';
@@ -17,11 +20,6 @@ const router = new VueRouter({
   base: import.meta.env.BASE_URL,
   routes: [
     {
-      path: '/homePage',
-      name: 'home',
-      component: HomePage,
-    },
-    {
       path: '/login',
       name: 'login',
       component: Login,
@@ -35,6 +33,18 @@ const router = new VueRouter({
       path: '/passRecovery',
       name: 'passRecovery',
       component: PassRecovery,
+    },
+    {
+      path: '/home',
+      name: 'home',
+      component: DefaultContainer,
+      children: [
+        {
+          path: '/home',
+          name: 'home',
+          component: HomePage,
+        },
+      ],
     },
     { path: '/', redirect: '/login' },
   ],

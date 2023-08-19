@@ -2,10 +2,15 @@
   <div class="TextField_Outlined">
     <v-text-field
       outlined
+      :prepend-inner-icon="prependInner ? prependInner : undefined"
       :placeholder="placeholder ? placeholder : undefined"
+      :append-icon="appendIcon ? appendIcon : undefined"
       :hide-details="hideDetails ? hideDetails : false"
+      :filled="filled ? filled : undefined"
       :label="label ? label : undefined"
       :type="type ? type : 'text'"
+      :id="id ? id : undefined"
+      @blur="doBlurFunction()"
       v-model="value"
       @input="$emit('update', value)"
     ></v-text-field>
@@ -14,11 +19,26 @@
 
 <script>
 export default {
-  props: ['placeholder', 'hideDetails', 'label', 'type', 'modelValue'],
+  props: [
+    'id',
+    'type',
+    'label',
+    'filled',
+    'modelValue',
+    'appendIcon',
+    'placeholder',
+    'hideDetails',
+    'prependInner',
+  ],
   data() {
     return {
       value: this.modelValue,
     };
+  },
+  methods: {
+    doBlurFunction() {
+      this.$emit('blur');
+    },
   },
 };
 </script>
@@ -26,17 +46,24 @@ export default {
 <style lang="scss">
 .TextField_Outlined {
   .v-input {
-    height: 41px !important;
+    height: 40px !important;
+
     .v-input__slot {
-      height: 41px !important;
-      min-height: 41px !important;
-      border-radius: 2px !important;
+      height: 40px !important;
+      min-height: 40px !important;
+
       fieldset {
         border: 1px solid #c7c7c7 !important;
       }
+
+      .v-input__prepend-inner {
+        transform: translateY(-8px);
+      }
     }
+
     .v-text-field__slot {
-      height: 41px !important;
+      height: 40px !important;
+
       input {
         font-size: 0.73rem !important;
         &::placeholder {
@@ -45,6 +72,7 @@ export default {
         }
       }
     }
+
     .v-label:not(.v-label--active) {
       transform: translateY(-5px) scale(0.75);
       max-width: none !important;
