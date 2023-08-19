@@ -4,7 +4,7 @@
       <!-- Login card -->
       <div class="login-box py-3 px-9 sm:border border-gray-300">
         <!-- Card title -->
-        <h3 class="brand-title font-bold text-center mt-3">Snsgram</h3>
+        <h3 class="app-logo font-bold text-center mt-3">Snsgram</h3>
         <!-- Card form  -->
         <div class="mt-10">
           <TextField
@@ -65,15 +65,8 @@
 </template>
 
 <script>
-import TextField from '@/components/microComponents/TextField.vue';
-import Button from '@/components/microComponents/Button.vue';
 export default {
   name: 'SnsgramLogin',
-
-  components: {
-    Button,
-    TextField,
-  },
 
   data() {
     return {
@@ -106,7 +99,7 @@ export default {
   &-box {
     width: 360px;
 
-    .brand-title {
+    .app-logo {
       font-family: 'Dancing Script';
       font-size: 3rem !important;
     }

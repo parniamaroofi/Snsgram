@@ -4,6 +4,17 @@ import App from './App.vue';
 import router from './router';
 import vuetify from './plugins/vuetify';
 
+// Common Components
+import TextField from '@/components/microComponents/TextField.vue';
+import Button from '@/components/microComponents/Button.vue';
+
+Vue.mixin({
+  components: {
+    TextField,
+    Button,
+  },
+});
+
 new Vue({
   router,
   vuetify,

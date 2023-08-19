@@ -58,15 +58,8 @@
 </template>
 
 <script>
-import TextField from '@/components/microComponents/TextField.vue';
-import Button from '@/components/microComponents/Button.vue';
 export default {
   name: 'SnsgramPassRecovery',
-
-  components: {
-    Button,
-    TextField,
-  },
 
   data() {
     return {
@@ -89,11 +82,6 @@ export default {
   height: 100dvh;
   &-box {
     width: 360px;
-
-    .brand-title {
-      font-family: 'Dancing Script';
-      font-size: 3rem !important;
-    }
   }
 }
 </style>
