@@ -8,8 +8,10 @@ Vue.use(Vuetify);
 // Icons
 import home from '@/components/icons/home.vue';
 import chat from '@/components/icons/chat.vue';
+import share from '@/components/icons/share.vue';
 import heart from '@/components/icons/heart.vue';
 import google from '@/components/icons/google.vue';
+import bookmark from '@/components/icons/bookmark.vue';
 
 export default new Vuetify({
   theme: {
@@ -22,8 +24,10 @@ export default new Vuetify({
     values: {
       home: { component: home },
       chat: { component: chat },
+      share: { component: share },
       heart: { component: heart },
       google: { component: google },
+      bookmark: { component: bookmark },
     },
   },
 });

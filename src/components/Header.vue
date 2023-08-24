@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="header-component border-b border-gray-300 d-flex justify-space-around align-center py-1"
-  >
+  <div class="header_component d-flex justify-space-around align-center py-1">
     <h3 class="app-logo font-bold">Snsgram</h3>
 
     <div style="width: 350px" class="d-none d-md-block">
@@ -24,7 +22,7 @@
         :placeholder="'Search...'"
         :hideDetails="true"
         :id="'search_field'"
-        @blur="searchMode = false"
+        @blur="!search ? (searchMode = false) : ''"
         v-else
       />
     </div>
@@ -32,15 +30,10 @@
     <div>
       <div class="d-flex align-center">
         <span class="mx-3"><v-icon>$home</v-icon></span>
-        <span class="mx-3"><v-icon>$chat</v-icon></span>
         <span class="mx-3"><v-icon>$heart</v-icon></span>
-        <div class="mx-3">
-          <img
-            src="/images/girl-icon.jpg"
-            style="aspect-ratio: 1 / 1"
-            class="rounded-full"
-            width="28"
-          />
+        <span class="mx-3"><v-icon>$share</v-icon></span>
+        <div class="ml-3">
+          <img src="/images/user.png" style="aspect-ratio: 1 / 1" class="rounded-full" width="28" />
         </div>
       </div>
     </div>
@@ -72,7 +65,13 @@ export default {
 </script>
 
 <style lang="scss">
-.header-component {
+.header_component {
+  top: 0;
+  width: 100vw;
+  z-index: 10;
+  position: fixed;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   .app-logo {
     font-family: 'Dancing Script';
     font-size: 2rem !important;
@@ -88,7 +87,7 @@ export default {
       background-color: #fafafa !important;
 
       .v-input__prepend-inner {
-        transform: translateY(-14px);
+        transform: translateY(-13px);
       }
     }
 

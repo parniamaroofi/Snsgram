@@ -1,0 +1,32 @@
+[
+   {
+     "profileImg": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe-cA9hIA3zIvKFHXQ31mkCRJ5v4iZMA0OQw&usqp=CAU",
+     "username": "s_____b____r______yt_",
+     "new": true,
+     "mutualFriends": []
+   },
+   {
+     "profileImg": "",
+     "username": "itz_your_tech",
+     "new": false,
+     "mutualFriends": ["Sarina.ksj", "nima.taban", "A.RE.H"]
+   },
+   {
+     "profileImg": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRms4SSvT_4IGE0kKkrS1oMdBLjREB9wJCNQA&usqp=CAU",
+     "username": "rohangup567",
+     "new": true,
+     "mutualFriends": []
+   },
+   {
+     "profileImg": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1-4rbYU57h7TIeAlsHLsomlddewPZCGmQQiKakgmKG81U3zCMvTKzb74LmkZPTdo8lvw&usqp=CAU",
+     "username": "pelulumangm",
+     "new": true,
+     "mutualFriends": []
+   },
+   {
+     "profileImg": "https://imgv3.fotor.com/images/gallery/Realistic-Male-Profile-Picture.jpg",
+     "username": "Danial.ms",
+     "new": false,
+     "mutualFriends": ["Romina_ms"]
+   }
+]

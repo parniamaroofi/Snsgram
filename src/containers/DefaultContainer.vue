@@ -1,6 +1,9 @@
 <template>
-  <div>
+  <div class="default_container">
     <Header />
+    <main class="main">
+      <router-view />
+    </main>
   </div>
 </template>
 
@@ -23,4 +26,17 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.default_container {
+  .main {
+    width: 100vw;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    margin-top: 56px;
+
+    @media only screen and (min-width: 1300px) {
+      margin-top: 86px;
+    }
+  }
+}
+</style>
