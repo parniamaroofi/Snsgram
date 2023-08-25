@@ -6,7 +6,7 @@
         <!-- Card title -->
         <h3 class="app-logo text-center font-bold mt-3">Snsgram</h3>
 
-        <p class="fs-xlarge text-gray-600 text-center font-bold my-2">
+        <p class="fs-xlarge mainFont--text text-center font-bold my-2">
           Sign up to see photos and videos from your friends.
         </p>
 
@@ -60,7 +60,7 @@
             class="mt-3"
           />
 
-          <p class="fs-small text-gray-600 text-center mt-3">
+          <p class="fs-small mainFont--text text-center mt-3">
             People who use our service may have uploaded your contact information to Instagram.
           </p>
 

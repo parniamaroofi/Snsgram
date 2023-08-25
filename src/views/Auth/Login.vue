@@ -40,7 +40,7 @@
         </div>
         <!-- Google account log in -->
         <div class="mt-5">
-          <div class="text-gray-600 font-bold fs-medium text-center">
+          <div class="mainFont--text font-bold fs-medium text-center">
             <v-icon small class="mr-1">$google</v-icon
             ><span class="ml-1">Log in with Google account</span>
           </div>
@@ -48,7 +48,7 @@
         <!-- Password recovery -->
         <div class="mt-5">
           <p
-            class="text-center fs-small mb-3 text-gray-600 cursor-pointer"
+            class="text-center fs-small mb-3 mainFont--text cursor-pointer"
             @click="$router.push('/passRecovery')"
           >
             Forgotten your password?

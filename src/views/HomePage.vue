@@ -3,12 +3,14 @@
     <v-row>
       <v-col lg="7" md="7" cols="12">
         <div>
-          <v-card flat class="pa-2">
-            <Stories />
+          <v-card flat class="pa-2 common-card">
+            <Stories :data="stories" />
           </v-card>
 
-          <v-card flat class="mt-sm-4 mt-0">
-            <Post />
+          <v-card flat class="mt-sm-4 mt-0 common-card">
+            <div v-for="(item, index) in posts" :key="index">
+              <Post :data="item" />
+            </div>
           </v-card>
         </div>
       </v-col>
@@ -22,7 +24,7 @@
             <!-- Profile username and fullname -->
             <div class="d-flex flex-column justify-center pl-3">
               <b class="fs-small pt-0.5">Parnia1106</b>
-              <span class="text-gray-400 fs-small -translate-y-0.5">Parnia Maroofi</span>
+              <span class="mainGray--text fs-small -translate-y-0.5">Parnia Maroofi</span>
             </div>
           </div>
 
@@ -34,7 +36,7 @@
         <!-- Suggestions -->
         <div class="suggestions_box">
           <div class="d-flex justify-space-between align-center">
-            <b class="text-gray-400 fs-medium">Suggestions for you</b>
+            <b class="mainGray--text fs-medium">Suggestions for you</b>
 
             <v-btn color="black" text><b class="fs-medium">See all</b></v-btn>
           </div>
@@ -62,12 +64,34 @@ export default {
   },
 
   data() {
-    return {};
+    return {
+      posts: [],
+      stories: [],
+    };
   },
 
-  mounted() {},
+  created() {
+    this.getData();
+  },
 
-  methods: {},
+  methods: {
+    getData() {
+      this.$http
+        .get('/static/api/homeContent.json', {
+          headers: {
+            Authorization: 'Bearer: ' + localStorage.getItem('token'),
+          },
+        })
+
+        .then((res) => {
+          this.posts = res.data.posts;
+          this.stories = res.data.stories;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+  },
 };
 </script>
 

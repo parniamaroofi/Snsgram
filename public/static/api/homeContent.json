@@ -1,0 +1,70 @@
+{
+    "stories": [
+        {
+          "profileImg": "https://vixi.cs.uvic.ca/uploads/sarina_bio.jpg",
+          "story":
+            "https://img.freepik.com/free-photo/beautiful-scenery-powerful-waterfall-surrounded-by-rocky-cliffs-trees-canada_181624-40995.jpg?w=2000",
+          "unseen": true,
+          "username": "Sarina.ksj",
+          "storyTime": "2 Hours"
+        },
+        {
+          "profileImg":
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRe0Xt_Fi9s-CrYmVzQjBymglwuAvhKnCH_NsJpmBNDD9mT9rB3q0gV1iDJkHKC6lmLrps&usqp=CAU",
+          "story": "https://wallpaperaccess.com/full/757572.jpg",
+          "unseen": true,
+          "username": "Romina_ms",
+          "storyTime": "4 Hours"
+        },
+        {
+          "profileImg": "",
+          "story": "https://wallpaperaccess.com/full/530919.jpg",
+          "unseen": true,
+          "username": "nima.taban",
+          "storyTime": "5 Hours"
+        }
+      ],
+
+    "posts": [
+        {
+          "id": "1",
+          "postUrl": "/images/socialMedia1.png",
+          "publisherProfileUrl": "",
+          "publisherUsername": "Parnia1106",
+          "publisherId": "be4875aa-4337-11ee-be56-0242ac120002",
+          "caption":
+            "It's not true that the more you love the better you understand. All that love and love wants from me is just the understanding of this wisdom: the other is not recognizable; its mathee is not a vague version of a secret, but it is a certificate that was in play and the show has no place. So I'm drowned in love with an anonymous person, who will remain anonymous forever. Siri Sly: I know what I do not know ...!",
+          "liked": false,
+          "likedPerson": "A.RE.H",
+          "likesNum": 100,
+          "commentsNum": 4,
+          "lastComments": [
+            {
+              "username": "Sarina.ksj",
+              "comment": "I love it 😍😍😍"
+            }
+          ],
+          "publishedTime": "2 hours ago"
+        },
+        {
+          "id": "2",
+          "postUrl": "/images/socialMedia2.png",
+          "publisherProfileUrl": "",
+          "publisherUsername": "A.RE.H",
+          "publisherId": "be4878fc-4337-11ee-be56-0242ac120002",
+          "caption":
+            "When large fortunes fall into the hands of some people, they become strong in the light of it, and in the shadow of strength and wealth they dream that they can live out of their homeland and be happy and proud, they will soon realize that they have made mistakes, and the greatness of every nation On the ruins of his homeland and cease!",
+          "liked": false,
+          "likedPerson": "nima.taban",
+          "likesNum": 150,
+          "commentsNum": 12,
+          "lastComments": [
+            {
+              "username": "d.kumars",
+              "comment": "Let go together next time!!"
+            }
+          ],
+          "publishedTime": "3 days ago"
+        }
+      ]
+}

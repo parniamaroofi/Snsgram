@@ -9,7 +9,7 @@
             <v-icon small color="white">mdi-plus</v-icon>
           </div>
         </div>
-        <div class="text-gray-600 text-center fs-xxsmall mt-1 font-bold">Your story</div>
+        <div class="mainFont--text text-center fs-xxsmall mt-1 font-bold">Your story</div>
       </div>
 
       <!-- Stories list -->
@@ -25,7 +25,7 @@
             :class="item.unseen ? 'unseen_story' : ''"
           />
         </div>
-        <div class="text-gray-600 text-center fs-xxsmall mt-1 font-bold">{{ item.username }}</div>
+        <div class="mainFont--text text-center fs-xxsmall mt-1 font-bold">{{ item.username }}</div>
       </div>
     </div>
   </div>
@@ -35,37 +35,19 @@
 export default {
   name: 'SnsgramStories',
 
+  props: ['data'],
+
   data() {
     return {
-      stories: [
-        {
-          profileImg: 'https://vixi.cs.uvic.ca/uploads/sarina_bio.jpg',
-          story:
-            'https://img.freepik.com/free-photo/beautiful-scenery-powerful-waterfall-surrounded-by-rocky-cliffs-trees-canada_181624-40995.jpg?w=2000',
-          unseen: true,
-          username: 'Sarina.ksj',
-          storyTime: '2 ساعت پیش',
-        },
-        {
-          profileImg:
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRe0Xt_Fi9s-CrYmVzQjBymglwuAvhKnCH_NsJpmBNDD9mT9rB3q0gV1iDJkHKC6lmLrps&usqp=CAU',
-          story: 'https://wallpaperaccess.com/full/757572.jpg',
-          unseen: true,
-          username: 'Romina_ms',
-          storyTime: '4 ساعت پیش',
-        },
-        {
-          profileImg: '',
-          story: 'https://wallpaperaccess.com/full/530919.jpg',
-          unseen: true,
-          username: 'nima.taban',
-          storyTime: '5 ساعت پیش',
-        },
-      ],
+      stories: [],
     };
   },
 
-  mounted() {},
+  created() {
+    setTimeout(() => {
+      this.stories = this.data;
+    }, 200);
+  },
 
   methods: {},
 };

@@ -18,13 +18,13 @@
           <b class="fs-small">{{ item.username }}</b>
           <span
             v-if="!item.new && item.mutualFriends.length"
-            class="text-gray-400 fs-small -translate-y-0.5"
+            class="mainGray--text fs-small -translate-y-0.5"
             >Followed by {{ item.mutualFriends[0] }}
             <span v-if="item.mutualFriends.length > 1"
               >+ {{ item.mutualFriends.length - 1 }} more
             </span>
           </span>
-          <span v-else class="text-gray-400 fs-small -translate-y-0.5">New to snsgram</span>
+          <span v-else class="mainGray--text fs-small -translate-y-0.5">New to snsgram</span>
         </div>
       </div>
 
@@ -68,7 +68,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.suggestions_component {
-}
-</style>
+<style lang="scss" scoped></style>

@@ -8,31 +8,55 @@
   font-size: 0.84rem;
 }
 
+html {
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #a0a0a0;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: #e2e2e2;
+  }
+}
+
 // Font Size
 .fs-xxsmall {
-  font-size: 0.66rem;
+  font-size: 0.66rem !important;
 }
 .fs-xsmall {
-  font-size: 0.7rem;
+  font-size: 0.7rem !important;
 }
 .fs-small {
-  font-size: 0.75rem;
+  font-size: 0.75rem !important;
 }
 .fs-medium {
-  font-size: 0.8rem;
+  font-size: 0.8rem !important;
 }
 .fs-large {
-  font-size: 0.9rem;
+  font-size: 0.9rem !important;
 }
 .fs-xlarge {
-  font-size: 1rem;
+  font-size: 1rem !important;
 }
 .fs-xxlarge {
-  font-size: 1.1rem;
+  font-size: 1.1rem !important;
 }
 
 // Button common styles
 .v-btn {
   letter-spacing: 0 !important;
   text-transform: none !important;
+}
+
+// Common card style
+.common-card {
+  @media only screen and (min-width: 1300px) {
+    border: 1px solid #e2e2e2 !important;
+  }
+}
+
+// Common styles
+.w-100 {
+  width: 100% !important;
 }

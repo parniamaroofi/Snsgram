@@ -8,9 +8,9 @@
           <img src="/images/lock-icon.png" />
         </div>
 
-        <p class="fs-xlarge font-bold text-gray-600 text-center my-3">Trouble Logging in?</p>
+        <p class="fs-xlarge font-bold mainFont--text text-center my-3">Trouble Logging in?</p>
 
-        <p class="fs-medium text-gray-400 text-center">
+        <p class="fs-medium mainGray--text text-center">
           Enter your email, phone number or username and we'll send you a link to get back into your
           account.
         </p>
@@ -40,7 +40,7 @@
         </div>
         <!-- Create new account -->
         <div class="mt-3 mb-10">
-          <div class="text-gray-600 font-bold fs-medium text-center">
+          <div class="mainFont--text font-bold fs-medium text-center">
             <span class="ml-1 cursor-pointer" @click="$router.push('/signup')"
               >Create new account</span
             >
@@ -49,7 +49,7 @@
       </div>
       <!-- Back button -->
       <div class="pass-recovery-box py-3 sm:border sm:border-t-0 border-gray-300 text-center">
-        <b class="cursor-pointer text-gray-600 fs-medium" @click="$router.push('/login')"
+        <b class="cursor-pointer mainFont--text fs-medium" @click="$router.push('/login')"
           >Back to Login</b
         >
       </div>

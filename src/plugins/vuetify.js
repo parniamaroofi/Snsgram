@@ -12,11 +12,15 @@ import share from '@/components/icons/share.vue';
 import heart from '@/components/icons/heart.vue';
 import google from '@/components/icons/google.vue';
 import bookmark from '@/components/icons/bookmark.vue';
+import filledHeart from '@/components/icons/filledHeart.vue';
 
 export default new Vuetify({
   theme: {
     themes: {
-      light: {},
+      light: {
+        mainFont: '#4b5563',
+        mainGray: '#838890',
+      },
       dark: {},
     },
   },
@@ -28,6 +32,7 @@ export default new Vuetify({
       heart: { component: heart },
       google: { component: google },
       bookmark: { component: bookmark },
+      filledHeart: { component: filledHeart },
     },
   },
 });

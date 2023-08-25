@@ -1,15 +1,15 @@
 <template>
-  <div class="posts_component">
+  <div class="post_component">
     <!-- Post content -->
-    <div class="post_box mb-4" v-for="(post, index) in posts" :key="index" :id="post.id">
+    <div class="post_box mb-4">
       <!-- Post publisher profile and options icon -->
       <div class="py-2 px-3 d-flex justify-space-between">
         <div class="d-flex align-center">
-          <div class="publisher_profile pointer">
+          <div class="publisher_profile cursor-pointer">
             <img :src="post.publisherProfileUrl ? post.publisherProfileUrl : '/images/user.png'" />
           </div>
 
-          <b class="text-gray-600 fs-small pointer ml-2">{{ post.publisherUsername }}</b>
+          <b class="mainFont--text fs-small cursor-pointer ml-2">{{ post.publisherUsername }}</b>
         </div>
         <!-- More options icon -->
         <div class="d-flex align-center">
@@ -26,144 +26,147 @@
       <div class="actions_box d-flex justify-space-between align-center py-2 px-3">
         <div class="d-flex">
           <!-- Like -->
-          <div class="mr-5 pointer" @click="toggleLikePost(post, 'normal')">
+          <div class="mr-5 cursor-pointer" @click="toggleLikePost(post, 'normal')">
             <v-icon v-if="!post.liked">$heart</v-icon>
-            <v-icon v-else>$redHeart</v-icon>
+            <v-icon v-else>$filledHeart</v-icon>
           </div>
           <!-- Comment -->
-          <div class="mr-5 pointer" @click="showPost(post)">
+          <div class="mr-5 cursor-pointer" @click="showPost(post)">
             <v-icon>$chat</v-icon>
           </div>
           <!-- Share -->
-          <div class="mr-5 pointer">
+          <div class="mr-5 cursor-pointer">
             <v-icon>$share</v-icon>
           </div>
         </div>
 
-        <div>
+        <div class="pt-1 cursor-pointer">
           <v-icon>$bookmark</v-icon>
         </div>
       </div>
 
-      <!-- <div class="post_caption d-flex pa-4">
-        <div class="publisher_profile pointer" @click="showUserProfile(post)">
-          <img :src="post.publisherProfileUrl ? post.publisherProfileUrl : '/images/user.png'" />
+      <!-- Likes -->
+      <div class="fs-small mainFont--text px-3.5" v-if="post.likesNum > 0">
+        Liked by <b class="fs-small">{{ post.likedPerson }}</b>
+        <span v-if="post.likesNum > 1">
+          and
+          <b class="fs-small">{{ post.likesNum }} others</b>
+        </span>
+      </div>
+
+      <!-- Caption -->
+      <div v-if="post.caption" class="post_caption px-3.5 mt-1">
+        <b class="mainFont--text fs-small cursor-pointer">{{ post.publisherUsername }}</b>
+
+        <!-- Short caption -->
+        <div v-if="!showMore" class="fs-medium mainFont--text">
+          {{ post.caption.length > 100 ? post.caption.slice(0, 100) + '...' : post.caption }}
+
+          <b
+            @click="toggleCaptionLength()"
+            v-if="post.caption.length > 100"
+            class="primary--text cursor-pointer fs-xsmall"
+            >Show more
+          </b>
         </div>
 
-        <span v-show="false">{{ reactivity }}</span>
+        <!-- Long caption -->
+        <div v-else class="fs-medium mainFont--text mt-1">
+          {{ post.caption }}
+          <b @click="toggleCaptionLength()" class="primary--text fs-xsmall cursor-pointer"
+            >Show less</b
+          >
+        </div>
+      </div>
 
-        <div class="ps-4" style="padding-top: 6px">
-          <b class="mainFont--text fs-small pointer" @click="showUserProfile(post)">{{
-            post.publisherUsername
-          }}</b>
-          <div v-if="!showMore[index]" class="fs-xsmall mainFont--text mt-1">
-            {{ post.caption.length > 70 ? post.caption.slice(0, 70) + '...' : post.caption }}
-            <span
-              v-if="post.caption.length > 70"
-              @click="changeShowMore(index)"
-              class="primary--text pointer fs-xxsmall"
-              >مشاهده بیشتر</span
-            >
+      <!-- Comments -->
+      <div class="px-3.5 mt-3">
+        <b class="mainGray--text fs-small" v-if="post.commentsNum > 1"
+          >View all {{ post.commentsNum }} comments
+        </b>
+
+        <div v-if="post.lastComments.length">
+          <div v-for="(item, cmIndex) in post.lastComments" :key="cmIndex">
+            <b class="fs-small mr-1">{{ item.username }}</b>
+            <span class="mainFont--text fs-medium">{{ item.comment }}</span>
           </div>
-
-          <div v-else class="fs-xsmall mainFont--text mt-1">
-            {{ post.caption }}
-            <span @click="changeShowMore(index)" class="primary--text fs-xxsmall">مشاهده کمتر</span>
-          </div>
         </div>
-      </div> -->
+      </div>
 
-      <!-- <div class="d-flex align-center me-4 ms-4">
-        <div class="user-avatar me-4">
-          <img width="30" height="30" src="/images/user.png" />
+      <!-- Add comment field -->
+      <div class="comment_box d-flex align-center px-3.5 mt-1">
+        <div class="user-avatar pt-1.5">
+          <img width="35" height="35" src="/images/user.png" />
         </div>
 
-        <div class="d-flex w-100">
+        <div class="d-flex ml-2 w-100">
           <v-text-field
-            outlined
             dense
-            placeholder="نظر خود را بنویسید..."
             hide-details
-            v-model="newComment[index]"
+            placeholder="Add a comment..."
+            v-model="newComment"
             @click:append="submitComment(post)"
-            @keyup.enter="newComment[index] ? submitComment(post) : ''"
-            :append-icon="newComment[index] ? '$Submit' : ''"
+            :append-icon="newComment ? '$Submit' : ''"
+            @keyup.enter="newComment ? submitComment(post) : ''"
           >
           </v-text-field>
         </div>
-      </div> -->
+      </div>
 
-      <!-- <div class="d-flex justify-space-between mt-6 ps-4 pe-4">
-        <div class="d-flex align-center">
-          <v-icon class="grey-icon pt-1">$Clock</v-icon>
-          <div class="fs-xxxsmall grey--text">
-            {{ post.publishedTime }}
-          </div>
-        </div>
-
-        <div @click="showPost(post)" class="mainFont--text fs-xsmall pointer d-flex align-center">
-          مشاهده {{ post.commentsNum }} نظر
-        </div>
-      </div> -->
+      <!-- Time -->
+      <div class="px-3.5 mt-1">
+        <span class="fs-xsmall mainGray--text">{{ post.publishedTime }}</span>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'SnsgramPosts',
+  name: 'SnsgramPost',
+
+  props: ['data'],
 
   data() {
     return {
-      showMore: [],
-
-      newComment: [],
-      posts: [
-        {
-          id: '1',
-          postUrl: '/images/socialMedia1.png',
-          publisherProfileUrl: '',
-          publisherUsername: 'Parnia1106',
-          publisherId: '35675',
-          caption:
-            'هر نفسی که فرو می‌ بریم، مرگی را که مدام به ما دست‌ اندازی می‌کند پس می‌زند. در نهایت این مرگ است که باید پیروز شود، زیرا از هنگام تولد بخشی از سرنوشت ما شده و فقط مدت کوتاهی پیش از بلعیدن طعمه اش، با آن بازی می کند. با این همه، ما تا آنجا که ممکن است، با علاقه فراوان و دلواپسی زیاد به زندگی ادامه می دهیم، همان‌ طور که تا آنجا که ممکن است طولانی‌ تر در یک حباب صابون می‌ دمیم تا بزرگتر شود، گر چه با قطعیتی تمام می‌ دانیم که خواهد ترکید.',
-          liked: false,
-          likesNum: 100,
-          publishedTime: '12 ساعت پیش',
-          commentsNum: 4,
-        },
-        {
-          id: '2',
-          postUrl: '/images/socialMedia2.png',
-          publisherProfileUrl: '',
-          publisherUsername: 'A.RE.H',
-          publisherId: '35675',
-          caption:
-            ' مداد رنگی ها مشغول بودند به جز مداد سفید، هیچکس به او کار نمیداد، همه میگفتند : تو به هیچ دردی نمیخوری، یک شب که مداد رنگی ها تو سیاهی شب گم شده بودند، مداد سفید تا صبح ماه کشید مهتاب کشید و انقدر ستاره کشید که کوچک و کوچکتر شد صبح توی جعبه مداد رنگی جای خالی او با هیچ رنگی  پر نشد، به یاد هم باشیم شاید فردا ما هم در کنار هم نباشیم…',
-          liked: false,
-          likesNum: 150,
-          publishedTime: '15 ساعت پیش',
-          commentsNum: 12,
-        },
-      ],
+      showMore: false,
+      newComment: '',
+      post: {},
     };
   },
 
   created() {
-    this.posts.forEach((element) => {
-      this.showMore.push(false);
-      this.newComment.push('');
-    });
+    this.post = this.data;
   },
 
   mounted() {},
 
-  methods: {},
+  methods: {
+    toggleLikePost(post, method) {
+      if (method == 'dblclick') {
+        if (!post.liked) {
+          post.likesNum++;
+        }
+        post.liked = true;
+      } else {
+        if (!post.liked) {
+          post.likesNum++;
+        } else {
+          post.likesNum--;
+        }
+        post.liked = !post.liked;
+      }
+    },
+
+    toggleCaptionLength() {
+      this.showMore = !this.showMore;
+    },
+  },
 };
 </script>
 
-<style lang="scss" scoped>
-.posts_component {
+<style lang="scss">
+.post_component {
   .post {
     &_image {
       width: 100%;
@@ -174,8 +177,16 @@ export default {
         height: 100%;
       }
     }
+  }
 
-    &_caption {
+  .comment_box {
+    .v-input__slot {
+      &::before {
+        border-width: 0px !important;
+      }
+      &::after {
+        border-width: 0px !important;
+      }
     }
   }
 
