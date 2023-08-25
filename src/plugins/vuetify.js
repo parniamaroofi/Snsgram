@@ -10,9 +10,11 @@ import home from '@/components/icons/home.vue';
 import chat from '@/components/icons/chat.vue';
 import share from '@/components/icons/share.vue';
 import heart from '@/components/icons/heart.vue';
+import close from '@/components/icons/close.vue';
 import google from '@/components/icons/google.vue';
 import bookmark from '@/components/icons/bookmark.vue';
 import filledHeart from '@/components/icons/filledHeart.vue';
+import filledBookmark from '@/components/icons/filledBookmark.vue';
 
 export default new Vuetify({
   theme: {
@@ -30,9 +32,11 @@ export default new Vuetify({
       chat: { component: chat },
       share: { component: share },
       heart: { component: heart },
+      close: { component: close },
       google: { component: google },
       bookmark: { component: bookmark },
       filledHeart: { component: filledHeart },
+      filledBookmark: { component: filledBookmark },
     },
   },
 });

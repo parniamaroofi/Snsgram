@@ -40,8 +40,9 @@
           </div>
         </div>
 
-        <div class="pt-1 cursor-pointer">
-          <v-icon>$bookmark</v-icon>
+        <div class="pt-1 cursor-pointer" @click="toggleSavePost(post)">
+          <v-icon v-if="!post.saved">$bookmark</v-icon>
+          <v-icon v-else>$filledBookmark</v-icon>
         </div>
       </div>
 
@@ -105,11 +106,20 @@
             hide-details
             placeholder="Add a comment..."
             v-model="newComment"
-            @click:append="submitComment(post)"
-            :append-icon="newComment ? '$Submit' : ''"
             @keyup.enter="newComment ? submitComment(post) : ''"
           >
           </v-text-field>
+
+          <v-btn
+            text
+            small
+            color="primary"
+            class="mt-1 ml-1"
+            :disabled="!newComment"
+            @click="submitComment(post)"
+          >
+            <b class="fs-small">Post</b>
+          </v-btn>
         </div>
       </div>
 
@@ -156,6 +166,18 @@ export default {
         }
         post.liked = !post.liked;
       }
+    },
+
+    toggleSavePost(post) {
+      post.saved = !post.saved;
+    },
+
+    submitComment(post) {
+      post.lastComments.push({
+        username: 'Parnia1106',
+        comment: this.newComment,
+      });
+      this.newComment = '';
     },
 
     toggleCaptionLength() {

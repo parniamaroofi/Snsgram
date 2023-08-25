@@ -4,7 +4,11 @@
       <v-col lg="7" md="7" cols="12">
         <div>
           <v-card flat class="pa-2 common-card">
-            <Stories :data="stories" />
+            <Stories
+              :data="stories"
+              @openStoryDialog="storyDialog = true"
+              @closeStoryDialog="storyDialog = false"
+            />
           </v-card>
 
           <v-card flat class="mt-sm-4 mt-0 common-card">
@@ -67,6 +71,7 @@ export default {
     return {
       posts: [],
       stories: [],
+      storyDialog: false,
     };
   },
 

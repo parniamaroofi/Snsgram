@@ -20,7 +20,7 @@
             v-if="!item.new && item.mutualFriends.length"
             class="mainGray--text fs-small -translate-y-0.5"
             >Followed by {{ item.mutualFriends[0] }}
-            <span v-if="item.mutualFriends.length > 1"
+            <span v-if="item.mutualFriends.length > 1" class="fs-small"
               >+ {{ item.mutualFriends.length - 1 }} more
             </span>
           </span>
@@ -52,9 +52,8 @@ export default {
       this.$http
         .get('/static/api/suggestions.json', {
           headers: {
-            Authorization: 'Bearer: ',
+            Authorization: 'Bearer: ' + localStorage.getItem('token'),
           },
-          //  + localStorage.getItem("token"),
         })
 
         .then((res) => {

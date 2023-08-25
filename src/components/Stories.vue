@@ -28,6 +28,60 @@
         <div class="mainFont--text text-center fs-xxsmall mt-1 font-bold">{{ item.username }}</div>
       </div>
     </div>
+
+    <!-- Dialog for story -->
+    <v-dialog v-model="storyDialog" fullscreen>
+      <v-card class="story_dialog">
+        <div class="story_box">
+          <!-- Story right action -->
+          <div class="right_action absolute right-0 z-10" @click="rightAction()"></div>
+          <!-- Story header -->
+          <div class="story_header absolute right-0 w-100 d-flex justify-space-between">
+            <!-- User info -->
+            <div class="user_info d-flex z-10">
+              <img
+                class="user_image"
+                :src="selectedStory.profileImg ? selectedStory.profileImg : '/images/user.png'"
+              />
+
+              <div class="d-flex flex-column pt-1.5 ps-3">
+                <span class="fs-small white--text font-bold">{{ selectedStory.username }}</span>
+                <span class="fs-xxsmall white--text">{{ selectedStory.storyTime }}</span>
+              </div>
+            </div>
+
+            <!-- Close icon -->
+            <div class="cursor-pointer" style="z-index: 11" @click="closeStory()">
+              <v-icon class="white-icon">$close</v-icon>
+            </div>
+          </div>
+
+          <!-- Time progress bar -->
+          <v-progress-linear
+            v-model="storyProgress"
+            v-if="showProgressValue"
+            color="white"
+            class="progress-bar"
+          ></v-progress-linear>
+
+          <!-- Story image -->
+          <img v-if="showStory" :src="selectedStory.story" />
+
+          <!-- Left action -->
+          <div class="left_action absolute left-0 z-10" @click="leftAction()"></div>
+
+          <div class="story-footer w-100 d-flex justify-space-between">
+            <div class="cursor-pointer white-stroke">
+              <v-icon>$heart</v-icon>
+            </div>
+
+            <div class="cursor-pointer white-fill white-stroke">
+              <v-icon>$share</v-icon>
+            </div>
+          </div>
+        </div>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
@@ -40,20 +94,92 @@ export default {
   data() {
     return {
       stories: [],
+      interval: '',
+      selectedStory: {},
+      selectedIndex: '',
+      storyProgress: 0,
+      showStory: false,
+      storyDialog: false,
+      showProgressValue: 0,
     };
   },
 
   created() {
     setTimeout(() => {
       this.stories = this.data;
-    }, 200);
+    }, 1000);
   },
 
-  methods: {},
+  methods: {
+    openStory(item, index) {
+      this.showStory = false;
+      this.selectedStory = item;
+      this.selectedIndex = index;
+      this.storyDialog = true;
+
+      setTimeout(() => {
+        this.showStory = true;
+        this.storyProgress = 0;
+        this.setStoryTimeout(index);
+      }, 90);
+
+      setTimeout(() => {
+        this.showProgressValue = true;
+        this.stories[index].unseen = false;
+      }, 100);
+
+      this.$emit('openStoryDialog');
+    },
+
+    setStoryTimeout(index) {
+      this.interval = setInterval(() => {
+        if (this.storyProgress <= 100) {
+          this.storyProgress += 1;
+        } else {
+          clearInterval(this.interval);
+
+          if (this.stories[index + 1]) {
+            this.showProgressValue = false;
+            this.openStory(this.stories[index + 1], index + 1);
+          } else {
+            this.storyProgress = 0;
+            this.storyDialog = false;
+            this.$emit('closeStoryDialog');
+          }
+        }
+      }, 100);
+    },
+
+    leftAction() {
+      if (this.selectedIndex != 0) {
+        clearInterval(this.interval);
+        this.openStory(this.stories[this.selectedIndex - 1], this.selectedIndex - 1);
+        this.showProgressValue = false;
+      }
+    },
+
+    rightAction() {
+      clearInterval(this.interval);
+      if (this.selectedIndex != this.stories.length - 1) {
+        this.openStory(this.stories[this.selectedIndex + 1], this.selectedIndex + 1);
+      } else if (this.selectedIndex == this.stories.length - 1) {
+        this.storyDialog = false;
+        this.$emit('closeStoryDialog');
+      }
+      this.showProgressValue = false;
+    },
+
+    closeStory() {
+      this.storyDialog = false;
+      this.$emit('closeStoryDialog');
+      this.showProgressValue = false;
+      clearInterval(this.interval);
+    },
+  },
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .storis_component {
   .stories_box {
     overflow-x: auto;
@@ -96,6 +222,70 @@ export default {
           aspect-ratio: 1 / 1;
         }
       }
+    }
+  }
+}
+.story_dialog {
+  .story_box {
+    width: 100%;
+    height: 100dvh;
+    display: flex;
+    padding-top: 1px;
+    position: relative;
+    align-items: center;
+    background-color: #1b1b1b;
+    @media screen and (min-width: 600px) {
+      width: 400px;
+      margin: 0 auto;
+    }
+
+    .right_action {
+      width: 30%;
+      height: 100%;
+    }
+
+    .left_action {
+      width: 30%;
+      height: 100%;
+    }
+
+    .story_header {
+      padding: 0 15px 20px 12px;
+      top: 20px;
+
+      .user_info {
+        .user_image {
+          width: 44px;
+          height: 44px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+      }
+    }
+
+    .story-footer {
+      z-index: 20;
+      position: fixed;
+      bottom: 0px;
+      padding: 12px 20px;
+      background-color: rgba($color: #000000, $alpha: 0.5);
+      @media screen and (min-width: 600px) {
+        width: 400px !important;
+        margin: 0 auto;
+      }
+    }
+
+    .progress-bar {
+      width: 100%;
+      position: absolute;
+      top: 1px;
+      left: 0;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
 }

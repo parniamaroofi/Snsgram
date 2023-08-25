@@ -60,3 +60,15 @@ html {
 .w-100 {
   width: 100% !important;
 }
+
+// Icons
+.white-stroke {
+  path {
+    stroke: #fff !important;
+  }
+}
+.white-fill {
+  path {
+    fill: #fff !important;
+  }
+}

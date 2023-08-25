@@ -6,7 +6,7 @@
             "https://img.freepik.com/free-photo/beautiful-scenery-powerful-waterfall-surrounded-by-rocky-cliffs-trees-canada_181624-40995.jpg?w=2000",
           "unseen": true,
           "username": "Sarina.ksj",
-          "storyTime": "2 Hours"
+          "storyTime": "2 hours ago"
         },
         {
           "profileImg":
@@ -14,14 +14,14 @@
           "story": "https://wallpaperaccess.com/full/757572.jpg",
           "unseen": true,
           "username": "Romina_ms",
-          "storyTime": "4 Hours"
+          "storyTime": "4 hours ago"
         },
         {
           "profileImg": "",
           "story": "https://wallpaperaccess.com/full/530919.jpg",
           "unseen": true,
           "username": "nima.taban",
-          "storyTime": "5 Hours"
+          "storyTime": "5 hours ago"
         }
       ],
 
@@ -38,6 +38,7 @@
           "likedPerson": "A.RE.H",
           "likesNum": 100,
           "commentsNum": 4,
+          "saved": false,
           "lastComments": [
             {
               "username": "Sarina.ksj",
@@ -58,6 +59,7 @@
           "likedPerson": "nima.taban",
           "likesNum": 150,
           "commentsNum": 12,
+          "saved": false,
           "lastComments": [
             {
               "username": "d.kumars",
