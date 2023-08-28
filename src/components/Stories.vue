@@ -1,6 +1,13 @@
 <template>
   <div class="storis_component pt-1">
-    <div class="stories_box d-flex">
+    <div v-if="loading" class="stories_box d-flex">
+      <div class="story_box" v-for="n in 5" :key="n">
+        <avatar-skeleton :size="70" />
+        <v-skeleton-loader type="text" class="mt-2"></v-skeleton-loader>
+      </div>
+    </div>
+
+    <div v-else class="stories_box d-flex">
       <!-- New story -->
       <div class="story_box">
         <div class="image_box">
@@ -15,7 +22,7 @@
       <!-- Stories list -->
       <div
         class="story_box cursor-pointer"
-        v-for="(item, index) in stories"
+        v-for="(item, index) in data"
         :key="index"
         @click="openStory(item, index)"
       >
@@ -86,10 +93,15 @@
 </template>
 
 <script>
+import AvatarSkeleton from '@/components/microComponents/AvatarSkeleton.vue';
 export default {
   name: 'SnsgramStories',
 
-  props: ['data'],
+  components: {
+    AvatarSkeleton,
+  },
+
+  props: ['data', 'loading'],
 
   data() {
     return {
@@ -127,8 +139,6 @@ export default {
         this.showProgressValue = true;
         this.stories[index].unseen = false;
       }, 100);
-
-      this.$emit('openStoryDialog');
     },
 
     setStoryTimeout(index) {
@@ -144,7 +154,6 @@ export default {
           } else {
             this.storyProgress = 0;
             this.storyDialog = false;
-            this.$emit('closeStoryDialog');
           }
         }
       }, 100);
@@ -164,14 +173,12 @@ export default {
         this.openStory(this.stories[this.selectedIndex + 1], this.selectedIndex + 1);
       } else if (this.selectedIndex == this.stories.length - 1) {
         this.storyDialog = false;
-        this.$emit('closeStoryDialog');
       }
       this.showProgressValue = false;
     },
 
     closeStory() {
       this.storyDialog = false;
-      this.$emit('closeStoryDialog');
       this.showProgressValue = false;
       clearInterval(this.interval);
     },
@@ -189,10 +196,10 @@ export default {
     }
 
     .story_box {
+      margin: 0 8px;
       .image_box {
         width: 70px;
         height: 70px;
-        margin: 0 8px;
         min-width: 70px;
         border-radius: 50px;
         position: relative;

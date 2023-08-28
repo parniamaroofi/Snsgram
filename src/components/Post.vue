@@ -72,7 +72,7 @@
         </div>
 
         <!-- Long caption -->
-        <div v-else class="fs-medium mainFont--text mt-1">
+        <div v-else class="fs-medium mainFont--text">
           {{ post.caption }}
           <b @click="toggleCaptionLength()" class="primary--text fs-xsmall cursor-pointer"
             >Show less</b

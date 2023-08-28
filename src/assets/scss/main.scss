@@ -43,7 +43,7 @@ html {
   font-size: 1.1rem !important;
 }
 
-// Button common styles
+// Common button styles
 .v-btn {
   letter-spacing: 0 !important;
   text-transform: none !important;
@@ -53,12 +53,20 @@ html {
 .common-card {
   @media only screen and (min-width: 1300px) {
     border: 1px solid #e2e2e2 !important;
+    border-radius: 6px !important;
   }
 }
 
 // Common styles
 .w-100 {
   width: 100% !important;
+}
+
+.v-skeleton-loader {
+  &__text {
+    margin: 0 !important;
+    border-radius: 0 !important;
+  }
 }
 
 // Icons

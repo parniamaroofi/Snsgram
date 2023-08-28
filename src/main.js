@@ -3,6 +3,7 @@ import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
 import vuetify from './plugins/vuetify';
+import store from './store/index';
 
 // to use axios globally
 import Axios from 'axios';
@@ -20,6 +21,7 @@ Vue.mixin({
 });
 
 new Vue({
+  store,
   router,
   vuetify,
   render: (h) => h(App),

@@ -1,6 +1,7 @@
 {
     "stories": [
         {
+          "id": "f08993a6-c237-4e95-b86e-ab34bb6ca632",
           "profileImg": "https://vixi.cs.uvic.ca/uploads/sarina_bio.jpg",
           "story":
             "https://img.freepik.com/free-photo/beautiful-scenery-powerful-waterfall-surrounded-by-rocky-cliffs-trees-canada_181624-40995.jpg?w=2000",
@@ -9,6 +10,7 @@
           "storyTime": "2 hours ago"
         },
         {
+          "id": "4b0072e9-f629-48b6-bf28-a37ef37b52c9",
           "profileImg":
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRe0Xt_Fi9s-CrYmVzQjBymglwuAvhKnCH_NsJpmBNDD9mT9rB3q0gV1iDJkHKC6lmLrps&usqp=CAU",
           "story": "https://wallpaperaccess.com/full/757572.jpg",
@@ -17,6 +19,7 @@
           "storyTime": "4 hours ago"
         },
         {
+          "id": "4b0072e9-f629-48b6-bf28-a37ef37b52c9",
           "profileImg": "",
           "story": "https://wallpaperaccess.com/full/530919.jpg",
           "unseen": true,
@@ -27,7 +30,7 @@
 
     "posts": [
         {
-          "id": "1",
+          "id": "61f505dd-13fb-4bc5-b2f2-9bdd6ba645d8",
           "postUrl": "/images/socialMedia1.png",
           "publisherProfileUrl": "",
           "publisherUsername": "Parnia1106",
@@ -48,7 +51,7 @@
           "publishedTime": "2 hours ago"
         },
         {
-          "id": "2",
+          "id": "d683f895-0a4b-472a-a909-73ea75fec0f9",
           "postUrl": "/images/socialMedia2.png",
           "publisherProfileUrl": "",
           "publisherUsername": "A.RE.H",
@@ -68,5 +71,38 @@
           ],
           "publishedTime": "3 days ago"
         }
-      ]
+      ],
+
+    "suggestions": [
+        {
+          "profileImg": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe-cA9hIA3zIvKFHXQ31mkCRJ5v4iZMA0OQw&usqp=CAU",
+          "username": "s_____b____r______yt_",
+          "new": true,
+          "mutualFriends": []
+        },
+        {
+          "profileImg": "",
+          "username": "itz_your_tech",
+          "new": false,
+          "mutualFriends": ["Sarina.ksj", "nima.taban", "A.RE.H"]
+        },
+        {
+          "profileImg": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRms4SSvT_4IGE0kKkrS1oMdBLjREB9wJCNQA&usqp=CAU",
+          "username": "rohangup567",
+          "new": true,
+          "mutualFriends": []
+        },
+        {
+          "profileImg": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1-4rbYU57h7TIeAlsHLsomlddewPZCGmQQiKakgmKG81U3zCMvTKzb74LmkZPTdo8lvw&usqp=CAU",
+          "username": "pelulumangm",
+          "new": true,
+          "mutualFriends": []
+        },
+        {
+          "profileImg": "https://imgv3.fotor.com/images/gallery/Realistic-Male-Profile-Picture.jpg",
+          "username": "Danial.ms",
+          "new": false,
+          "mutualFriends": ["Romina_ms"]
+        }
+      ]   
 }

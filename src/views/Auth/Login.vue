@@ -12,6 +12,7 @@
             @update="(newVal) => (username = newVal)"
             :label="'Phone number, username or email address'"
             :hideDetails="true"
+            @enter="username && password ? doLogin() : ''"
           />
           <TextField
             :modelValue="password"
@@ -20,6 +21,7 @@
             :hideDetails="true"
             :type="'password'"
             class="mt-3"
+            @enter="username && password ? doLogin() : ''"
           />
 
           <Button
@@ -82,7 +84,13 @@ export default {
     doLogin() {
       this.loading = true;
       setTimeout(() => {
+        localStorage.setItem('username', 'Parnia1106');
+        localStorage.setItem(
+          'token',
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c'
+        );
         this.loading = false;
+        this.$router.push('/home');
       }, 1000);
     },
   },

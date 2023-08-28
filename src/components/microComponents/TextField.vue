@@ -13,6 +13,7 @@
       @blur="doBlurFunction()"
       v-model="value"
       @input="$emit('update', value)"
+      @keyup.enter="$emit('enter')"
     ></v-text-field>
   </div>
 </template>

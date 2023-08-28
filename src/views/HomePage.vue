@@ -4,11 +4,7 @@
       <v-col lg="7" md="7" cols="12">
         <div>
           <v-card flat class="pa-2 common-card">
-            <Stories
-              :data="stories"
-              @openStoryDialog="storyDialog = true"
-              @closeStoryDialog="storyDialog = false"
-            />
+            <Stories :data="stories" :loading="pageLoading" />
           </v-card>
 
           <v-card flat class="mt-sm-4 mt-0 common-card">
@@ -20,25 +16,41 @@
       </v-col>
       <v-col lg="5" md="5" class="d-sm-block d-none">
         <!-- User Profile -->
-        <div class="user_profile d-flex justify-space-between py-4">
-          <div class="d-flex">
-            <!-- Profile image -->
-            <img src="/images/user.png" class="rounded-full" width="52" />
+        <v-row class="user_profile mt-2">
+          <v-col>
+            <div class="d-flex">
+              <!-- Profile image -->
+              <avatar-skeleton v-if="pageLoading" :size="52" />
+              <img v-else src="/images/user.png" class="rounded-full" width="52" />
 
-            <!-- Profile username and fullname -->
-            <div class="d-flex flex-column justify-center pl-3">
-              <b class="fs-small pt-0.5">Parnia1106</b>
-              <span class="mainGray--text fs-small -translate-y-0.5">Parnia Maroofi</span>
+              <!-- Profile username and fullname -->
+              <div class="d-flex flex-column justify-center pl-3 w-100">
+                <div>
+                  <v-skeleton-loader
+                    v-if="pageLoading"
+                    type="text"
+                    class="mb-2"
+                  ></v-skeleton-loader>
+                  <b v-else class="fs-small pt-0.5">Parnia1106</b>
+                </div>
+
+                <div>
+                  <v-skeleton-loader v-if="pageLoading" type="text"></v-skeleton-loader>
+                  <span v-else class="mainGray--text fs-small -translate-y-0.5">
+                    Parnia Maroofi
+                  </span>
+                </div>
+              </div>
             </div>
-          </div>
+          </v-col>
 
-          <div class="d-flex align-center">
-            <v-btn text color="primary"><b class="fs-medium">Switch</b></v-btn>
-          </div>
-        </div>
+          <v-col class="d-flex align-center justify-end">
+            <v-btn v-if="!pageLoading" text color="primary"><b class="fs-medium">Switch</b></v-btn>
+          </v-col>
+        </v-row>
 
         <!-- Suggestions -->
-        <div class="suggestions_box">
+        <div class="suggestions_box mt-3">
           <div class="d-flex justify-space-between align-center">
             <b class="mainGray--text fs-medium">Suggestions for you</b>
 
@@ -46,7 +58,7 @@
           </div>
 
           <div class="mt-2">
-            <Suggestions />
+            <Suggestions :data="suggestions" :loading="pageLoading" />
           </div>
         </div>
       </v-col>
@@ -58,6 +70,7 @@
 import Post from '@/components/Post.vue';
 import Stories from '@/components/Stories.vue';
 import Suggestions from '@/components/Suggestions.vue';
+import AvatarSkeleton from '@/components/microComponents/AvatarSkeleton.vue';
 export default {
   name: 'SnsgramHomePage',
 
@@ -65,13 +78,16 @@ export default {
     Post,
     Stories,
     Suggestions,
+    AvatarSkeleton,
   },
 
   data() {
     return {
       posts: [],
       stories: [],
-      storyDialog: false,
+      suggestions: [],
+      pageLoading: false,
+      suggestionLoading: false,
     };
   },
 
@@ -81,6 +97,7 @@ export default {
 
   methods: {
     getData() {
+      this.pageLoading = true;
       this.$http
         .get('/static/api/homeContent.json', {
           headers: {
@@ -91,8 +108,11 @@ export default {
         .then((res) => {
           this.posts = res.data.posts;
           this.stories = res.data.stories;
+          this.suggestions = res.data.suggestions;
+          this.pageLoading = false;
         })
         .catch((err) => {
+          this.pageLoading = false;
           console.log(err);
         });
     },
