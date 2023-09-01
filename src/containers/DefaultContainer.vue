@@ -35,6 +35,7 @@ export default {
     margin-top: 56px;
 
     @media only screen and (min-width: 1300px) {
+      padding: 0 250px 25px;
       margin-top: 86px;
     }
   }

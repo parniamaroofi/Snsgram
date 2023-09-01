@@ -9,7 +9,7 @@
 
           <v-card flat class="mt-sm-4 mt-0 common-card">
             <div v-for="(item, index) in posts" :key="index">
-              <Post :data="item" />
+              <Post :data="item" :summary="true" />
             </div>
           </v-card>
         </div>
@@ -119,11 +119,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.home_page {
-  @media only screen and (min-width: 1300px) {
-    padding: 0 250px 25px;
-  }
-}
-</style>

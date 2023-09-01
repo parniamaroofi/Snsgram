@@ -81,8 +81,11 @@
       </div>
 
       <!-- Comments -->
-      <div class="px-3.5 mt-3">
-        <b class="mainGray--text fs-small" v-if="post.commentsNum > 1"
+      <div v-if="summary" class="px-3.5 mt-3">
+        <b
+          class="mainGray--text fs-small cursor-pointer"
+          @click="$router.push(`/post/${post.id}`)"
+          v-if="post.commentsNum > 1"
           >View all {{ post.commentsNum }} comments
         </b>
 
@@ -95,7 +98,7 @@
       </div>
 
       <!-- Add comment field -->
-      <div class="comment_box d-flex align-center px-3.5 mt-1">
+      <div v-if="summary" class="comment_box d-flex align-center px-3.5 mt-1">
         <div class="user-avatar pt-1.5">
           <img width="35" height="35" src="/images/user.png" />
         </div>
@@ -116,7 +119,7 @@
             color="primary"
             class="mt-1 ml-1"
             :disabled="!newComment"
-            @click="submitComment(post)"
+            @click="submitComment()"
           >
             <b class="fs-small">Post</b>
           </v-btn>
@@ -135,7 +138,7 @@
 export default {
   name: 'SnsgramPost',
 
-  props: ['data'],
+  props: ['data', 'summary'],
 
   data() {
     return {
@@ -148,8 +151,6 @@ export default {
   created() {
     this.post = this.data;
   },
-
-  mounted() {},
 
   methods: {
     toggleLikePost(post, method) {
@@ -172,8 +173,8 @@ export default {
       post.saved = !post.saved;
     },
 
-    submitComment(post) {
-      post.lastComments.push({
+    submitComment() {
+      this.post.lastComments.push({
         username: 'Parnia1106',
         comment: this.newComment,
       });

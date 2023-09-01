@@ -12,6 +12,7 @@ import PassRecovery from '../views/Auth/PassRecovery.vue';
 
 // General
 import HomePage from '../views/HomePage.vue';
+import PostId from '../views/PostId.vue';
 
 Vue.use(VueRouter);
 
@@ -43,6 +44,11 @@ const router = new VueRouter({
           path: '/home',
           name: 'home',
           component: HomePage,
+        },
+        {
+          path: '/post/:id',
+          name: 'postId',
+          component: PostId,
         },
       ],
     },
