@@ -10,13 +10,15 @@ import Axios from 'axios';
 Vue.prototype.$http = Axios;
 
 // Common Components
-import TextField from '@/components/microComponents/TextField.vue';
-import Button from '@/components/microComponents/Button.vue';
+const TextField = () => import('@/components/microComponents/TextField.vue');
+const Button = () => import('@/components/microComponents/Button.vue');
+const Loading = () => import('@/components/Loading.vue');
 
 Vue.mixin({
   components: {
     TextField,
     Button,
+    Loading,
   },
 });
 

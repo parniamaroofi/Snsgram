@@ -15,16 +15,23 @@
         v-if="!searchMode"
       />
 
-      <TextField
-        :modelValue="search"
-        @update="(newVal) => (search = newVal)"
-        :prependInner="'mdi-magnify'"
-        :placeholder="'Search...'"
-        :hideDetails="true"
-        :id="'search_field'"
-        @blur="!search ? (searchMode = false) : ''"
-        v-else
-      />
+      <v-menu v-model="searchMenu" :close-on-click="false" offset-y v-else>
+        <template v-slot:activator="{ attrs }">
+          <div v-bind="attrs">
+            <TextField
+              :modelValue="search"
+              @update="(newVal) => (search = newVal)"
+              :prependInner="'mdi-magnify'"
+              :placeholder="'Search...'"
+              :hideDetails="true"
+              :id="'search_field'"
+            />
+          </div>
+        </template>
+        <v-card class="pa-4">
+          <search-result :searchValue="search" />
+        </v-card>
+      </v-menu>
     </div>
 
     <div>
@@ -37,17 +44,24 @@
         </div>
       </div>
     </div>
+
+    <v-overlay v-if="showOverlay" @click="searchModeOff()"></v-overlay>
   </div>
 </template>
 
 <script>
+const SearchResult = () => import('@/components/SearchResult.vue');
 export default {
   name: 'SnsgramHeader',
+
+  components: { SearchResult },
 
   data() {
     return {
       search: '',
+      searchMenu: false,
       searchMode: false,
+      showOverlay: false,
     };
   },
 
@@ -56,9 +70,16 @@ export default {
   methods: {
     searchModeOn() {
       this.searchMode = true;
+      this.showOverlay = true;
       setTimeout(() => {
+        this.searchMenu = true;
         document.getElementById('search_field').focus();
       }, 100);
+    },
+    searchModeOff() {
+      this.searchMode = false;
+      this.searchMenu = false;
+      this.showOverlay = false;
     },
   },
 };
@@ -72,6 +93,11 @@ export default {
   position: fixed;
   background-color: #fff;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+  .v-overlay {
+    top: 57px !important;
+  }
+
   .app-logo {
     font-family: 'Dancing Script';
     font-size: 2rem !important;
