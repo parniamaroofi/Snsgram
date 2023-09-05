@@ -20,6 +20,22 @@ Vue.mixin({
     Button,
     Loading,
   },
+
+  data() {
+    return {
+      deviceType: '',
+    };
+  },
+
+  created() {
+    if (window.screen.width < 768) {
+      this.deviceType = 'mobile';
+    } else if (window.screen.width > 768 && window.screen.width < 1300) {
+      this.deviceType = 'ipad';
+    } else {
+      this.deviceType = 'desktop';
+    }
+  },
 });
 
 new Vue({

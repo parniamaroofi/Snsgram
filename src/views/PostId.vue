@@ -1,17 +1,21 @@
 <template>
   <div class="post_id">
     <v-row v-if="!gettingData">
-      <v-col lg="7" md="7" cols="12">
+      <!-- Post card -->
+      <v-col lg="7" cols="12">
         <v-card flat class="common-card">
-          <Post :data="postDetails" :summary="false" />
+          <Post :data="postDetails" :summary="deviceType == 'desktop' ? false : true" />
         </v-card>
       </v-col>
-      <v-col lg="5" md="5" class="d-sm-block d-none">
+      <!-- Comments section -->
+      <v-col lg="5" class="d-md-block d-none">
         <v-card flat class="common-card commands_card">
+          <!-- Header title -->
           <div class="text-center py-3">
             <span class="mainFont--text fs-xlarge">Comments</span>
           </div>
           <v-divider class="mx-3"></v-divider>
+          <!-- Comments -->
           <Comments :data="postDetails.comments" />
         </v-card>
       </v-col>
@@ -70,7 +74,7 @@ export default {
 <style lang="scss">
 .post_id {
   .commands_card {
-    height: calc(100dvh - 110px);
+    height: calc(100dvh - 115px);
   }
 }
 </style>

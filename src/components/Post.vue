@@ -18,7 +18,7 @@
       </div>
 
       <!-- Post file -->
-      <div class="post_image">
+      <div class="post_image" @click="$router.push(`/post/${post.id}`)">
         <v-img @dblclick="toggleLikePost(post, 'dblclick')" :src="post.postUrl" dark></v-img>
       </div>
 
@@ -82,10 +82,7 @@
 
       <!-- Comments -->
       <div v-if="summary" class="px-3.5 mt-3">
-        <b
-          class="mainGray--text fs-small cursor-pointer"
-          @click="$router.push(`/post/${post.id}`)"
-          v-if="post.commentsNum > 1"
+        <b class="mainGray--text fs-small cursor-pointer" v-if="post.commentsNum > 1"
           >View all {{ post.commentsNum }} comments
         </b>
 

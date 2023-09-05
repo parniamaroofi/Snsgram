@@ -1,5 +1,5 @@
 <template>
-  <div class="header_component d-flex justify-space-around align-center py-1">
+  <div class="header_component d-flex align-center py-1">
     <h3 class="app-logo font-bold">Snsgram</h3>
 
     <div style="width: 350px" class="d-none d-md-block">
@@ -36,10 +36,10 @@
 
     <div>
       <div class="d-flex align-center">
-        <span class="mx-3"><v-icon>$home</v-icon></span>
-        <span class="mx-3"><v-icon>$heart</v-icon></span>
-        <span class="mx-3"><v-icon>$share</v-icon></span>
-        <div class="ml-3">
+        <span class="mx-3 d-md-block d-none"><v-icon>$home</v-icon></span>
+        <span class="mx-3 d-md-block d-none"><v-icon>$heart</v-icon></span>
+        <span class="mx-md-3 mx-0"><v-icon>$share</v-icon></span>
+        <div class="ml-3 d-md-block d-none">
           <img src="/images/user.png" style="aspect-ratio: 1 / 1" class="rounded-full" width="28" />
         </div>
       </div>
@@ -93,6 +93,14 @@ export default {
   position: fixed;
   background-color: #fff;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+  @media only screen and (max-width: 1300px) {
+    justify-content: space-between;
+    padding: 0 16px;
+  }
+  @media only screen and (min-width: 1300px) {
+    justify-content: space-around;
+  }
 
   .v-overlay {
     top: 57px !important;

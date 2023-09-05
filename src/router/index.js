@@ -18,6 +18,7 @@ Vue.use(VueRouter);
 
 const router = new VueRouter({
   mode: 'history',
+  scrollBehavior: () => ({ y: 0 }),
   base: import.meta.env.BASE_URL,
   routes: [
     {
