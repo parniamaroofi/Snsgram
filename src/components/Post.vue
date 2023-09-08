@@ -81,7 +81,7 @@
       </div>
 
       <!-- Comments -->
-      <div v-if="summary" class="px-3.5 mt-3">
+      <div v-if="summary" @click="showAllComments()" class="px-3.5 mt-3">
         <b class="mainGray--text fs-small cursor-pointer" v-if="post.commentsNum > 1"
           >View all {{ post.commentsNum }} comments
         </b>
@@ -128,17 +128,41 @@
         <span class="fs-xsmall mainGray--text">{{ post.publishedTime }}</span>
       </div>
     </div>
+
+    <!-- swipe modal -->
+    <div @click="swipeModal = false" v-if="swipeModal" class="back_drop">&nbsp;</div>
+    <div class="swipe_modal" :class="swipeModal ? 'active' : ''">
+      <div style="height: 100%">
+        <!-- <div
+          class="grey py-0.5 w-1/6 rounded-full mx-auto mt-5 mb-2"
+          @click="swipeModal = false"
+        ></div> -->
+        <!-- Header title -->
+        <div class="text-center py-3" @click="swipeModal = false">
+          <span class="mainFont--text fs-xlarge">Comments</span>
+        </div>
+        <v-divider class="mx-3"></v-divider>
+        <!-- Comments -->
+        <Comments :data="post.comments" />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+const Comments = () => import('@/components/Comments.vue');
 export default {
   name: 'SnsgramPost',
 
   props: ['data', 'summary'],
 
+  components: {
+    Comments,
+  },
+
   data() {
     return {
+      swipeModal: false,
       showMore: false,
       newComment: '',
       post: {},
@@ -171,8 +195,14 @@ export default {
     },
 
     submitComment() {
+      this.post.comments.push({
+        username: 'Parnia1106',
+        publishedTime: 'Now',
+        comment: this.newComment,
+      });
       this.post.lastComments.push({
         username: 'Parnia1106',
+        publishedTime: 'Now',
         comment: this.newComment,
       });
       this.newComment = '';
@@ -180,6 +210,12 @@ export default {
 
     toggleCaptionLength() {
       this.showMore = !this.showMore;
+    },
+
+    showAllComments() {
+      if (this.deviceType == 'mobile') {
+        this.swipeModal = true;
+      }
     },
   },
 };

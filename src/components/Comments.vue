@@ -1,5 +1,6 @@
 <template>
   <div class="comments_component d-flex flex-column justify-space-between pa-4">
+    <!-- All comments -->
     <div class="comments_box pr-1">
       <div
         class="d-flex"
@@ -7,6 +8,7 @@
         v-for="(item, index) in data"
         :key="index"
       >
+        <!-- Author profile image -->
         <div>
           <img
             width="30"
@@ -19,15 +21,16 @@
 
         <div class="d-flex flex-column">
           <div class="d-flex">
+            <!-- Author username -->
             <b class="fs-xsmall mainFont--text">
               {{ item.username }}
             </b>
-
+            <!-- The published time -->
             <span class="fs-xsmall grey--text ml-1.5">{{ item.publishedTime }}</span>
           </div>
-
+          <!-- Content of the comment -->
           <span class="fs-medium mainFont--text" v-html="formattedText(item.comment)"> </span>
-
+          <!-- Reply button -->
           <div
             @click="replyComment(item)"
             class="fs-xxsmall grey--text cursor-pointer font-bold mt-1"
@@ -37,6 +40,8 @@
         </div>
       </div>
     </div>
+
+    <!-- The field to write and share a new comment -->
     <div class="mt-4">
       <v-divider></v-divider>
       <div class="d-flex ml-2 mt-2 w-100">
@@ -50,6 +55,7 @@
         >
         </v-text-field>
 
+        <!-- Submit button -->
         <v-btn
           text
           small
@@ -75,8 +81,8 @@ export default {
   data() {
     return {
       comments: [],
-      sending: false,
       newComment: '',
+      sending: false,
     };
   },
 
@@ -115,7 +121,7 @@ export default {
     },
 
     formattedText(str) {
-      return str.replace(/(@\S+)/g, '<b>$1</b>');
+      return str.replace(/(@\S+)/g, '<b class="fs-small primary--text">$1</b>');
     },
   },
 };

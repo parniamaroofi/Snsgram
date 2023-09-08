@@ -80,3 +80,29 @@ html {
     fill: #fff !important;
   }
 }
+
+// Draggable modal
+.swipe_modal {
+  position: fixed;
+  bottom: -100%;
+  right: 0;
+  z-index: 50;
+  height: 95dvh;
+  overflow: hidden;
+  background-color: #fff;
+  border-radius: 15px 15px 0 0;
+  transition: all 0.15s ease-in-out;
+  box-shadow: 0 0 6px 0 rgba(126, 34, 34, 0.16) !important;
+  &.active {
+    bottom: 0 !important;
+  }
+}
+.back_drop {
+  top: 0;
+  left: 0;
+  z-index: 40;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.61);
+}
