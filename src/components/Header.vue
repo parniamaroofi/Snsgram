@@ -49,7 +49,7 @@
 </template>
 
 <script>
-const SearchResult = () => import('@/components/SearchResult.vue');
+const SearchResult = () => import('@/views/components/SearchResult.vue');
 export default {
   name: 'SnsgramHeader',
 

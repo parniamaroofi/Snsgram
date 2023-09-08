@@ -24,8 +24,8 @@
 </template>
 
 <script>
-const Post = () => import('@/components/Post.vue');
-const Comments = () => import('@/components/Comments.vue');
+const Post = () => import('@/views/components/Post.vue');
+const Comments = () => import('@/views/components/Comments.vue');
 export default {
   name: 'SnsgramPostId',
 

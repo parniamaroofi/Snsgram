@@ -143,11 +143,13 @@
         </div>
       </template>
     </swipe-modal>
+
+    <!-- Dialog for comments -->
   </div>
 </template>
 
 <script>
-const Comments = () => import('@/components/Comments.vue');
+const Comments = () => import('@/views/components/Comments.vue');
 const SwipeModal = () => import('@/components/SwipeModal.vue');
 export default {
   name: 'SnsgramPost',

@@ -67,9 +67,9 @@
 </template>
 
 <script>
-import Post from '@/components/Post.vue';
-import Stories from '@/components/Stories.vue';
-import Suggestions from '@/components/Suggestions.vue';
+import Post from '@/views/components/Post.vue';
+import Stories from '@/views/components/Stories.vue';
+import Suggestions from '@/views/components/Suggestions.vue';
 import AvatarSkeleton from '@/components/microComponents/AvatarSkeleton.vue';
 export default {
   name: 'SnsgramHomePage',
