@@ -19,8 +19,7 @@
         <template v-slot:activator="{ attrs }">
           <div v-bind="attrs">
             <TextField
-              :modelValue="search"
-              @update="(newVal) => (search = newVal)"
+              v-model="search"
               :prependInner="'mdi-magnify'"
               :placeholder="'Search...'"
               :hideDetails="true"

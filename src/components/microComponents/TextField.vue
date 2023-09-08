@@ -11,8 +11,7 @@
       :type="type ? type : 'text'"
       :id="id ? id : undefined"
       @blur="doBlurFunction()"
-      v-model="value"
-      @input="$emit('update', value)"
+      @input="updateValue"
       @keyup.enter="$emit('enter')"
     ></v-text-field>
   </div>
@@ -25,20 +24,20 @@ export default {
     'type',
     'label',
     'filled',
-    'modelValue',
     'appendIcon',
     'placeholder',
     'hideDetails',
     'prependInner',
   ],
   data() {
-    return {
-      value: this.modelValue,
-    };
+    return {};
   },
   methods: {
     doBlurFunction() {
       this.$emit('blur');
+    },
+    updateValue(event) {
+      this.$emit('input', event);
     },
   },
 };

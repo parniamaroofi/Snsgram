@@ -29,31 +29,17 @@
         <!-- Card form  -->
         <div class="mt-4">
           <TextField
-            :modelValue="contactInfo"
-            @update="(newVal) => (contactInfo = newVal)"
+            v-model="contactInfo"
             :label="'Phone number or email address'"
             :hideDetails="true"
           />
 
-          <TextField
-            :modelValue="fullName"
-            @update="(newVal) => (fullName = newVal)"
-            :label="'Full Name'"
-            :hideDetails="true"
-            class="mt-3"
-          />
+          <TextField v-model="fullName" :label="'Full Name'" :hideDetails="true" class="mt-3" />
+
+          <TextField v-model="username" :label="'Username'" :hideDetails="true" class="mt-3" />
 
           <TextField
-            :modelValue="username"
-            @update="(newVal) => (username = newVal)"
-            :label="'Username'"
-            :hideDetails="true"
-            class="mt-3"
-          />
-
-          <TextField
-            :modelValue="password"
-            @update="(newVal) => (password = newVal)"
+            v-model="password"
             :label="'Password'"
             :hideDetails="true"
             :type="'password'"

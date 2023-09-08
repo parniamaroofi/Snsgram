@@ -18,8 +18,7 @@
         <!-- Card form  -->
         <div class="mt-6">
           <TextField
-            :modelValue="contactInfo"
-            @update="(newVal) => (contactInfo = newVal)"
+            v-model="contactInfo"
             :label="'Phone number, username or email address'"
             :hideDetails="true"
           />

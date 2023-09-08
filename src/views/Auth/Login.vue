@@ -8,15 +8,13 @@
         <!-- Card form  -->
         <div class="mt-10">
           <TextField
-            :modelValue="username"
-            @update="(newVal) => (username = newVal)"
+            v-model="username"
             :label="'Phone number, username or email address'"
             :hideDetails="true"
             @enter="username && password ? doLogin() : ''"
           />
           <TextField
-            :modelValue="password"
-            @update="(newVal) => (password = newVal)"
+            v-model="password"
             :label="'Password'"
             :hideDetails="true"
             :type="'password'"
