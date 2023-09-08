@@ -129,28 +129,26 @@
       </div>
     </div>
 
-    <!-- swipe modal -->
-    <div @click="swipeModal = false" v-if="swipeModal" class="back_drop">&nbsp;</div>
-    <div class="swipe_modal" :class="swipeModal ? 'active' : ''">
-      <div style="height: 100%">
-        <!-- <div
-          class="grey py-0.5 w-1/6 rounded-full mx-auto mt-5 mb-2"
-          @click="swipeModal = false"
-        ></div> -->
-        <!-- Header title -->
-        <div class="text-center py-3" @click="swipeModal = false">
-          <span class="mainFont--text fs-xlarge">Comments</span>
+    <!-- Swipe modal for comments -->
+    <swipe-modal v-model="commentsSwipeModal">
+      <template #content>
+        <div style="height: 100%">
+          <!-- Header title -->
+          <div class="text-center py-3" @click="commentsSwipeModal = false">
+            <span class="mainFont--text fs-xlarge">Comments</span>
+          </div>
+          <v-divider class="mx-3"></v-divider>
+          <!-- Comments -->
+          <Comments :data="post.comments" />
         </div>
-        <v-divider class="mx-3"></v-divider>
-        <!-- Comments -->
-        <Comments :data="post.comments" />
-      </div>
-    </div>
+      </template>
+    </swipe-modal>
   </div>
 </template>
 
 <script>
 const Comments = () => import('@/components/Comments.vue');
+const SwipeModal = () => import('@/components/SwipeModal.vue');
 export default {
   name: 'SnsgramPost',
 
@@ -158,11 +156,12 @@ export default {
 
   components: {
     Comments,
+    SwipeModal,
   },
 
   data() {
     return {
-      swipeModal: false,
+      commentsSwipeModal: false,
       showMore: false,
       newComment: '',
       post: {},
@@ -214,7 +213,7 @@ export default {
 
     showAllComments() {
       if (this.deviceType == 'mobile') {
-        this.swipeModal = true;
+        this.commentsSwipeModal = true;
       }
     },
   },
