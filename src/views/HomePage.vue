@@ -67,10 +67,10 @@
 </template>
 
 <script>
-import Post from '@/views/components/Post.vue';
-import Stories from '@/views/components/Stories.vue';
-import Suggestions from '@/views/components/Suggestions.vue';
-import AvatarSkeleton from '@/components/microComponents/AvatarSkeleton.vue';
+const Post = () => import('@/components/Post.vue');
+const Stories = () => import('@/components/Stories.vue');
+const Suggestions = () => import('@/components/Suggestions.vue');
+const AvatarSkeleton = () => import('@/components/microComponents/AvatarSkeleton.vue');
 export default {
   name: 'SnsgramHomePage',
 

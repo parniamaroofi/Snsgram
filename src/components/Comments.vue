@@ -50,8 +50,9 @@
           hide-details
           placeholder="Add a comment..."
           v-model="newComment"
-          @keyup.enter="newComment ? submitComment(post) : ''"
+          @keyup.enter="newComment ? submitComment() : ''"
           id="command_field"
+          :disabled="sending"
         >
         </v-text-field>
 
@@ -90,6 +91,10 @@ export default {
     this.comments = this.data;
   },
 
+  mounted() {
+    this.scrollToEnd();
+  },
+
   methods: {
     submitComment() {
       this.sending = true;
@@ -102,16 +107,16 @@ export default {
         });
         this.newComment = '';
         this.sending = false;
-      }, 600);
+      }, 500);
 
       setTimeout(() => {
         this.scrollToEnd();
-      }, 610);
+      }, 510);
     },
 
     scrollToEnd() {
-      let container = document.querySelector('.comments_box');
-      let scrollHeight = container.scrollHeight;
+      var container = document.querySelector('.comments_box');
+      var scrollHeight = container.scrollHeight;
       container.scrollTop = scrollHeight;
     },
 
@@ -131,7 +136,7 @@ export default {
 .comments_component {
   height: calc(100% - 48px);
   .comments_box {
-    overflow-y: auto;
+    overflow-y: auto !important;
 
     &::-webkit-scrollbar {
       width: 6px;

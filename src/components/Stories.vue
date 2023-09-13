@@ -9,6 +9,7 @@
 
     <div v-else class="stories_box d-flex">
       <!-- New story -->
+
       <div class="story_box">
         <div class="image_box">
           <img src="/images/user.png" />

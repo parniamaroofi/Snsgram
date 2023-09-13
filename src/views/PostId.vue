@@ -16,7 +16,7 @@
           </div>
           <v-divider class="mx-3"></v-divider>
           <!-- Comments -->
-          <Comments :data="postDetails.comments" />
+          <Comments :data="postDetails.comments" v-if="$route.name == 'postId'" />
         </v-card>
       </v-col>
     </v-row>
@@ -24,8 +24,8 @@
 </template>
 
 <script>
-const Post = () => import('@/views/components/Post.vue');
-const Comments = () => import('@/views/components/Comments.vue');
+const Post = () => import('@/components/Post.vue');
+const Comments = () => import('@/components/Comments.vue');
 export default {
   name: 'SnsgramPostId',
 

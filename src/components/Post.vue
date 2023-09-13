@@ -81,8 +81,11 @@
       </div>
 
       <!-- Comments -->
-      <div v-if="summary" @click="showAllComments()" class="px-3.5 mt-3">
-        <b class="mainGray--text fs-small cursor-pointer" v-if="post.commentsNum > 1"
+      <div v-if="summary" class="px-3.5 mt-3">
+        <b
+          class="mainGray--text fs-small cursor-pointer"
+          v-if="post.commentsNum > 1"
+          @click="showAllComments()"
           >View all {{ post.commentsNum }} comments
         </b>
 
@@ -139,18 +142,32 @@
           </div>
           <v-divider class="mx-3"></v-divider>
           <!-- Comments -->
-          <Comments :data="post.comments" />
+          <Comments :data="post.comments" v-if="commentsSwipeModal" />
         </div>
       </template>
     </swipe-modal>
 
     <!-- Dialog for comments -->
+    <custom-dialog v-model="commentsDialog" :width="400" :hideHeader="true">
+      <template #content>
+        <div style="height: 500px">
+          <!-- Header title -->
+          <div class="text-center py-3">
+            <span class="mainFont--text fs-xlarge">Comments</span>
+          </div>
+          <v-divider class="mx-3"></v-divider>
+          <!-- Comments -->
+          <Comments :data="post.comments" v-if="commentsDialog" />
+        </div>
+      </template>
+    </custom-dialog>
   </div>
 </template>
 
 <script>
-const Comments = () => import('@/views/components/Comments.vue');
+const Comments = () => import('@/components/Comments.vue');
 const SwipeModal = () => import('@/components/SwipeModal.vue');
+const CustomDialog = () => import('@/components/CustomDialog.vue');
 export default {
   name: 'SnsgramPost',
 
@@ -159,11 +176,13 @@ export default {
   components: {
     Comments,
     SwipeModal,
+    CustomDialog,
   },
 
   data() {
     return {
       commentsSwipeModal: false,
+      commentsDialog: false,
       showMore: false,
       newComment: '',
       post: {},
@@ -216,6 +235,8 @@ export default {
     showAllComments() {
       if (this.deviceType == 'mobile') {
         this.commentsSwipeModal = true;
+      } else {
+        this.commentsDialog = true;
       }
     },
   },

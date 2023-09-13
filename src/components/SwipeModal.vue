@@ -20,8 +20,6 @@ export default {
     };
   },
 
-  mounted() {},
-
   methods: {
     closeModal() {
       this.$emit('input', false);
@@ -63,7 +61,7 @@ export default {
   left: 0;
   z-index: 40;
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   position: fixed;
   background-color: rgba(0, 0, 0, 0.61);
 }
