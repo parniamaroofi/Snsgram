@@ -7,7 +7,7 @@
             <Stories :data="stories" :loading="pageLoading" />
           </v-card>
 
-          <v-card flat class="mt-sm-4 mt-0 common-card">
+          <v-card flat class="mt-sm-2 mt-0 common-card">
             <div v-for="(item, index) in posts" :key="index">
               <Post :data="item" :summary="true" />
             </div>

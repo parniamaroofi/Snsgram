@@ -234,9 +234,11 @@ export default {
   }
 }
 .story_dialog {
+  background-color: rgba($color: #fff, $alpha: 0.75) !important;
+  height: 100dvh;
   .story_box {
     width: 100%;
-    height: 100dvh;
+    height: 99.8dvh;
     display: flex;
     padding-top: 1px;
     position: relative;

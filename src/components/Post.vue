@@ -135,9 +135,9 @@
     <!-- Swipe modal for comments -->
     <swipe-modal v-model="commentsSwipeModal">
       <template #content>
-        <div style="height: 100%">
+        <div style="height: 97%">
           <!-- Header title -->
-          <div class="text-center py-3" @click="commentsSwipeModal = false">
+          <div class="text-center py-3 mt-3">
             <span class="mainFont--text fs-xlarge">Comments</span>
           </div>
           <v-divider class="mx-3"></v-divider>
