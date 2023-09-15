@@ -1,5 +1,5 @@
 <template>
-  <div class="TextField_Outlined">
+  <div class="TextField_component">
     <v-text-field
       outlined
       :prepend-inner-icon="prependInner ? prependInner : undefined"
@@ -44,20 +44,23 @@ export default {
 </script>
 
 <style lang="scss">
-.TextField_Outlined {
+.TextField_component {
   .v-input {
     height: 40px !important;
 
     .v-input__slot {
       height: 40px !important;
       min-height: 40px !important;
+      border-radius: 8px !important;
 
       fieldset {
-        border: 1px solid #c7c7c7 !important;
+        border: 1px solid #d4d4d4 !important;
+        border-radius: 8px !important;
       }
 
       .v-input__prepend-inner {
         transform: translateY(-8px);
+        padding-right: 15px !important;
       }
     }
 
@@ -65,9 +68,9 @@ export default {
       height: 40px !important;
 
       input {
-        font-size: 0.73rem !important;
+        font-size: 0.82rem !important;
         &::placeholder {
-          font-size: 0.73rem !important;
+          font-size: 0.82rem !important;
           color: grey !important;
         }
       }

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="text-center grey--text fs-small" v-if="!searchResult.length">
-      There is no search history.
+      No search history yet.
     </div>
 
     <div v-else>

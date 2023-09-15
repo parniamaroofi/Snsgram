@@ -90,7 +90,7 @@ export default {
     left: 0;
     width: 100%;
     background-color: #fff;
-    box-shadow: 0 -5px 5px -5px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 -5px 5px -5px rgba(0, 0, 0, 0.15);
     ul {
       position: relative;
       padding: 10px 20px;
@@ -166,7 +166,7 @@ export default {
     background: #fff;
     border-radius: 50%;
     transition: 0.25s;
-    box-shadow: 0 3px 5px 3px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 3px 5px 3px rgba(0, 0, 0, 0.15);
 
     .white_box {
       background: #fff;

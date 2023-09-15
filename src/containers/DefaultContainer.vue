@@ -1,7 +1,7 @@
 <template>
   <div class="default_container">
-    <Header />
-    <main class="main">
+    <Header v-if="$route.meta.header" />
+    <main class="main" :class="$route.meta.header ? 'width_margintop' : ''">
       <router-view />
     </main>
     <Navigation class="d-md-none d-block" />
@@ -35,12 +35,20 @@ export default {
     width: 100vw;
     overflow-y: hidden;
     overflow-x: hidden;
-    margin-top: 56px;
-    margin-bottom: 85px;
+
+    &.width_margintop {
+      margin-top: 56px;
+      @media only screen and (min-width: 1300px) {
+        margin-top: 86px;
+      }
+    }
+
+    @media only screen and (max-width: 1300px) {
+      margin-bottom: 85px;
+    }
 
     @media only screen and (min-width: 1300px) {
       padding: 0 250px 25px;
-      margin-top: 86px;
     }
   }
 }
