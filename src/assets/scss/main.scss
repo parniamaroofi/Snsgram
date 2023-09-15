@@ -3,6 +3,11 @@
 //   font-family: 'Dancing Script';
 //   src: url('./../font/DancingScript-Regular.ttf');
 // }
+
+:root {
+  --step-size: 76px;
+}
+
 * {
   font-family: 'Open Sans', sans-serif;
   font-size: 0.84rem;

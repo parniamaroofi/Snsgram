@@ -12,7 +12,11 @@ import PassRecovery from '../views/Auth/PassRecovery.vue';
 
 // General
 import HomePage from '../views/HomePage.vue';
+import NewPost from '../views/NewPost.vue';
+import Profile from '../views/Profile.vue';
+import Search from '../views/Search.vue';
 import PostId from '../views/PostId.vue';
+import Likes from '../views/Likes.vue';
 
 Vue.use(VueRouter);
 
@@ -47,9 +51,29 @@ const router = new VueRouter({
           component: HomePage,
         },
         {
+          path: '/search',
+          name: 'search',
+          component: Search,
+        },
+        {
+          path: '/newPost',
+          name: 'newPost',
+          component: NewPost,
+        },
+        {
+          path: '/profile',
+          name: 'profile',
+          component: Profile,
+        },
+        {
           path: '/post/:id',
           name: 'postId',
           component: PostId,
+        },
+        {
+          path: '/likes',
+          name: 'likes',
+          component: Likes,
         },
       ],
     },

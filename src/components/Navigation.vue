@@ -5,15 +5,14 @@
         <li
           v-for="(item, index) in navItems"
           :key="index"
-          @click="temp = item.title"
-          :class="temp == item.title ? 'active' : ''"
+          @click="$router.push(item.url)"
+          :class="$route.path == item.url ? 'active' : ''"
         >
           <img
             v-if="item.title == 'Profile'"
             src="/images/user.png"
             style="aspect-ratio: 1 / 1"
             class="rounded-full nav_icon ml-0.5"
-            :style="temp == 'Profile' ? 'border: 1px solid #1976d2' : ''"
             width="29"
           />
           <v-icon v-else class="nav_icon">{{ item.icon }}</v-icon>
@@ -33,42 +32,51 @@ export default {
 
   data() {
     return {
-      temp: 'Home',
       navItems: [
         {
           title: 'Home',
           icon: '$home',
+          url: '/home',
         },
         {
           title: 'Search',
           icon: '$magnify',
+          url: '/search',
         },
         {
           title: 'New',
           icon: '$add',
+          url: '/newPost',
         },
         {
           title: 'Likes',
           icon: '$heart',
+          url: '/likes',
         },
         {
           title: 'Profile',
-          icon: 'mdi-account-outline',
+          icon: '',
+          url: '/profile',
         },
       ],
     };
   },
 
-  mounted() {
-    this.computedBoxSize();
-  },
+  mounted() {},
 
-  methods: {
-    computedBoxSize() {
+  methods: {},
+
+  watch: {
+    '$route.path': function () {
+      // To find step size between nav items
       let container = document.querySelector('.nav_box');
-      return {
-        '--step-size': (container.getBoundingClientRect().width - 40 - 5 * 57) / 4,
-      };
+      document.documentElement.style.setProperty(
+        '--step-size',
+        (container.getBoundingClientRect().width - 40 - this.navItems.length * 57) /
+          (this.navItems.length - 1) +
+          57 +
+          'px'
+      );
     },
   },
 };
@@ -97,19 +105,19 @@ export default {
         position: relative;
 
         &:nth-child(1).active ~ .indicator_box {
-          transform: translateX(calc(76px * 0));
+          transform: translateX(calc(var(--step-size) * 0));
         }
         &:nth-child(2).active ~ .indicator_box {
-          transform: translateX(calc(76px * 1));
+          transform: translateX(calc(var(--step-size) * 1));
         }
         &:nth-child(3).active ~ .indicator_box {
-          transform: translateX(calc(76px * 2));
+          transform: translateX(calc(var(--step-size) * 2));
         }
         &:nth-child(4).active ~ .indicator_box {
-          transform: translateX(calc(76px * 3));
+          transform: translateX(calc(var(--step-size) * 3));
         }
         &:nth-child(5).active ~ .indicator_box {
-          transform: translateX(calc(76px * 4));
+          transform: translateX(calc(var(--step-size) * 4));
         }
 
         .nav_title {
