@@ -1,6 +1,9 @@
 <template>
   <div class="home_page">
-    <v-row>
+    <!-- Page Header -->
+    <Header />
+    <!-- Page main content -->
+    <v-row class="main_content">
       <v-col lg="7" md="7" cols="12">
         <div>
           <v-card flat class="pa-2 common-card">
@@ -68,6 +71,7 @@
 
 <script>
 const Post = () => import('@/components/Post.vue');
+const Header = () => import('@/components/Header.vue');
 const Stories = () => import('@/components/Stories.vue');
 const Suggestions = () => import('@/components/Suggestions.vue');
 const AvatarSkeleton = () => import('@/components/microComponents/AvatarSkeleton.vue');
@@ -76,6 +80,7 @@ export default {
 
   components: {
     Post,
+    Header,
     Stories,
     Suggestions,
     AvatarSkeleton,
@@ -119,3 +124,14 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.home_page {
+  .main_content {
+    margin-top: 45px;
+    @media only screen and (min-width: 1300px) {
+      margin-top: 60px;
+    }
+  }
+}
+</style>

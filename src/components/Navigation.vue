@@ -18,7 +18,7 @@
           <v-icon v-else class="nav_icon">{{ item.icon }}</v-icon>
           <span class="nav_title">{{ item.title }}</span>
         </li>
-        <div class="indicator_box">
+        <div class="indicator_box" v-if="navItems.some((x) => x.url == $route.path)">
           <div class="white_box">&nbsp;</div>
         </div>
       </ul>
@@ -49,9 +49,9 @@ export default {
           url: '/newPost',
         },
         {
-          title: 'Likes',
+          title: 'Notifs',
           icon: '$heart',
-          url: '/likes',
+          url: '/notifs',
         },
         {
           title: 'Profile',
@@ -180,7 +180,7 @@ export default {
       height: 30px;
       position: absolute;
       border-radius: 50%;
-      top: 0.1rem;
+      top: 0.15rem;
       left: -29px;
       background: transparent;
       box-shadow: 15px 18px #fff;
@@ -191,7 +191,7 @@ export default {
       height: 30px;
       position: absolute;
       border-radius: 50%;
-      top: 0.1rem;
+      top: 0.15rem;
       right: -28px;
       background: transparent;
       box-shadow: -15px 18px #fff;

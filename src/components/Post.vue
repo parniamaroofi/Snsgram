@@ -18,7 +18,7 @@
       </div>
 
       <!-- Post file -->
-      <div class="post_image" @click="$router.push(`/post/${post.id}`)">
+      <div class="post_image">
         <v-img @dblclick="toggleLikePost(post, 'dblclick')" :src="post.postUrl" dark></v-img>
       </div>
 
@@ -51,7 +51,7 @@
         Liked by <b class="fs-small">{{ post.likedPerson }}</b>
         <span v-if="post.likesNum > 1">
           and
-          <b class="fs-small">{{ post.likesNum }} others</b>
+          <b class="fs-small">{{ Number(post.likesNum) - 1 }} others</b>
         </span>
       </div>
 

@@ -87,6 +87,7 @@ export default {
 <style lang="scss">
 .header_component {
   top: 0;
+  left: 0;
   width: 100vw;
   z-index: 10;
   position: fixed;

@@ -1,5 +1,5 @@
 <template>
-  <div class="search_component pa-4">
+  <div class="search_component pa-5">
     <div>
       <TextField
         v-model="search"
