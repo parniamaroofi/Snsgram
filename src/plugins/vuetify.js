@@ -9,6 +9,7 @@ Vue.use(Vuetify);
 import add from '@/components/icons/add.vue';
 import home from '@/components/icons/home.vue';
 import chat from '@/components/icons/chat.vue';
+import lock from '@/components/icons/lock.vue';
 import share from '@/components/icons/share.vue';
 import heart from '@/components/icons/heart.vue';
 import close from '@/components/icons/close.vue';
@@ -33,6 +34,7 @@ export default new Vuetify({
       add: { component: add },
       home: { component: home },
       chat: { component: chat },
+      lock: { component: lock },
       share: { component: share },
       heart: { component: heart },
       close: { component: close },

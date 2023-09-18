@@ -1,0 +1,35 @@
+{
+    "username": "Parnia1106",
+    "profileImg": "",
+    "postsNumber": 5,
+    "followersNumber": 120,
+    "followingNumber": 264,
+    "name": "Parnia Maroofi",
+    "bio": "<pre>&lt;FrontEnd-Developer /&gt;</pre>",
+    "posts": [
+      {
+        "id": "69278c5a-f92b-42eb-98a7-f28a6951bd6a",
+        "imageUrl": "/images/socialMedia1.png"
+      },
+      {
+        "id": "de92b8e7-57cc-4c13-9c4f-8128861e2f87",
+        "imageUrl":
+          "https://img.freepik.com/photos-premium/collines-herbeuses-chemin-terre-menant-ai-generative-colline-herbeuse_958165-4433.jpg"
+      },
+      {
+        "id": "02d90b54-1e85-4890-b030-50cdd6db0119",
+        "imageUrl":
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSic3zn3bCU6WtxWNdCQWx6OyC0yUaSsSqwwA&usqp=CAU"
+      },
+      {
+        "id": "3edc2cfa-f2d2-4d93-a821-2392189732dc",
+        "imageUrl":
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRc8hgaA8OiD_b0sMQ-XQxy89ubw9AKjAO7wsNegEeqm0Uscv5QK7tAHeyw1NEhMIAeKVc&usqp=CAU"
+      },
+      {
+        "id": "8de62adb-578c-4820-ab18-75b8deb377af",
+        "imageUrl":
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdLkjSIcU6vlu6BJMVevYciQLJL-MhYOccqQ&usqp=CAU"
+      }
+    ]
+}
