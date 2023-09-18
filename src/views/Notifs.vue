@@ -1,5 +1,5 @@
 <template>
-  <div class="notifs_component pa-5">
+  <v-card flat class="notifs_component common-card mt-md-5 mt-0 pa-5">
     <!-- Page header -->
     <div class="mb-6">
       <v-icon class="mr-4" @click="$router.go(-1)">mdi-arrow-left</v-icon>
@@ -56,7 +56,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </v-card>
 </template>
 
 <script>

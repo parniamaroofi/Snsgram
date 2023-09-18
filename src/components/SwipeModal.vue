@@ -6,9 +6,9 @@
       <div class="relative box1">
         <div class="swipe_modal w-screen">
           <!-- Close Modal Icon -->
-          <div class="relative box2" v-if="value">
+          <div class="relative box2">
             <div class="icon_box" @click="closeModal">
-              <v-icon>mdi-chevron-down</v-icon>
+              <v-icon large>mdi-chevron-down</v-icon>
             </div>
           </div>
           <!-- Modal Content -->
@@ -75,7 +75,7 @@ export default {
       bottom: 0;
       left: 0;
       z-index: 22;
-      height: 91.5dvh;
+      height: 90dvh;
       background-color: #fff;
       border-radius: 15px 15px 0 0;
       box-shadow: 0 0 6px 0 rgba(126, 34, 34, 0.16) !important;
@@ -83,7 +83,7 @@ export default {
       .box2 {
         .icon_box {
           position: absolute;
-          top: -7px;
+          top: -3px;
           left: 50%;
           width: 55px;
           height: 55px;
@@ -94,30 +94,29 @@ export default {
           justify-content: center;
           border-radius: 50%;
           background-color: white;
-          border: 7px solid #0000009c;
           transform: translate(-50%, -30px);
 
           &::before {
             content: '';
+            width: 30px;
+            height: 30px;
             position: absolute;
-            top: 73%;
-            left: -35%;
-            width: 15px;
-            height: 15px;
-            background: whitered;
-            border-top-right-radius: 25px;
-            box-shadow: 0 -10px 0 0 rgb(99, 99, 99);
+            border-radius: 50%;
+            top: 0.15rem;
+            left: -29px;
+            background: transparent;
+            box-shadow: 15px 18px #fff;
           }
           &::after {
             content: '';
+            width: 30px;
+            height: 30px;
             position: absolute;
-            top: 73%;
-            right: -35%;
-            width: 15px;
-            height: 15px;
-            background: whitered;
-            border-top-left-radius: 25px;
-            box-shadow: 0 -10px 0 0 rgb(99, 99, 99);
+            border-radius: 50%;
+            top: 0.15rem;
+            right: -28px;
+            background: transparent;
+            box-shadow: -15px 18px #fff;
           }
         }
       }
