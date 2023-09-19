@@ -4,9 +4,10 @@
     <div class="pa-5 d-flex justify-space-between align-center">
       <!-- Account username -->
       <div>
+        <v-icon class="mr-4" @click="$router.go(-1)">mdi-arrow-left</v-icon>
         <b class="fs-xxxlarge mainFont--text"
-          ><v-icon class="mr-1">$lock</v-icon>{{ profile.username }}</b
-        >
+          ><v-icon class="mr-1">$lock</v-icon>{{ profile.username }}
+        </b>
       </div>
       <!-- Menu icon -->
       <div>
@@ -45,7 +46,7 @@
       <!-- Bio section -->
       <div class="mt-3">
         <b>{{ profile.name }}</b>
-        <div class="fs-medium mt-1" v-html="profile.bio"></div>
+        <div class="profile_bio fs-medium mt-1" v-html="profile.bio"></div>
       </div>
     </div>
 
@@ -102,4 +103,12 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss">
+.profile_component {
+  .profile_bio {
+    p {
+      margin-bottom: 0;
+    }
+  }
+}
+</style>

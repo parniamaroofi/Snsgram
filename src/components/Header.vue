@@ -35,10 +35,14 @@
 
     <div>
       <div class="d-flex align-center">
-        <span class="mx-3 d-md-block d-none"><v-icon>$home</v-icon></span>
-        <span class="mx-3 d-md-block d-none"><v-icon>$heart</v-icon></span>
+        <span class="mx-3 d-md-block d-none"
+          ><v-icon @click="$router.push('/home')">$home</v-icon></span
+        >
+        <span class="mx-3 d-md-block d-none"
+          ><v-icon @click="$router.push('/notifs')">$heart</v-icon></span
+        >
         <span class="mx-md-3 mx-0"><v-icon>$share</v-icon></span>
-        <div class="ml-3 d-md-block d-none">
+        <div class="ml-3 d-md-block d-none cursor-pointer" @click="$router.push('profile')">
           <img src="/images/user.png" style="aspect-ratio: 1 / 1" class="rounded-full" width="28" />
         </div>
       </div>

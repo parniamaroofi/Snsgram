@@ -127,6 +127,7 @@ export default {
 
 <style lang="scss">
 .home_page {
+  min-height: 100dvh;
   .main_content {
     margin-top: 45px;
     @media only screen and (min-width: 1300px) {
