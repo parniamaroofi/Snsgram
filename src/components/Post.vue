@@ -56,7 +56,7 @@
       </div>
 
       <!-- Caption -->
-      <div v-if="post.caption" class="post_caption px-3.5 mt-1">
+      <div v-if="post.caption" class="post_caption px-3.5 mt-1" @click="showAllComments()">
         <b class="mainFont--text fs-small cursor-pointer">{{ post.publisherUsername }}</b>
 
         <!-- Short caption -->

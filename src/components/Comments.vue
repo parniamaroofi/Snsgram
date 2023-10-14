@@ -22,7 +22,7 @@
         <div class="d-flex flex-column">
           <div class="d-flex">
             <!-- Author username -->
-            <b class="fs-xsmall mainFont--text">
+            <b class="fs-small mainFont--text">
               {{ item.username }}
             </b>
             <!-- The published time -->
@@ -33,7 +33,7 @@
           <!-- Reply button -->
           <div
             @click="replyComment(item)"
-            class="fs-xxsmall grey--text cursor-pointer font-bold mt-1"
+            class="fs-xsmall grey--text cursor-pointer font-bold mt-1"
           >
             Reply
           </div>

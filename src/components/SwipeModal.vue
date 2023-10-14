@@ -83,7 +83,7 @@ export default {
       .box2 {
         .icon_box {
           position: absolute;
-          top: -1px;
+          top: 3px;
           left: 50%;
           width: 55px;
           height: 55px;
@@ -102,8 +102,8 @@ export default {
             height: 30px;
             position: absolute;
             border-radius: 50%;
-            top: 0.1rem;
-            left: -29px;
+            top: -0.19rem;
+            left: -27px;
             background: transparent;
             box-shadow: 15px 18px #fff;
           }
@@ -113,8 +113,8 @@ export default {
             height: 30px;
             position: absolute;
             border-radius: 50%;
-            top: 0.1rem;
-            right: -28px;
+            top: -0.19rem;
+            right: -27px;
             background: transparent;
             box-shadow: -15px 18px #fff;
           }

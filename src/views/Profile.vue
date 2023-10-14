@@ -28,15 +28,15 @@
         <v-col class="pl-0">
           <div class="d-flex justify-space-around align-center" style="height: 100%">
             <div class="d-flex flex-column align-center">
-              <b class="fs-large">{{ profile.postsNumber }}</b>
+              <b class="fs-xlarge">{{ profile.postsNumber }}</b>
               <span class="fs-small">Posts</span>
             </div>
             <div class="d-flex flex-column align-center">
-              <b class="fs-large">{{ profile.followersNumber }}</b>
+              <b class="fs-xlarge">{{ profile.followersNumber }}</b>
               <span class="fs-small">Followers</span>
             </div>
             <div class="d-flex flex-column align-center">
-              <b class="fs-large">{{ profile.followingNumber }}</b>
+              <b class="fs-xlarge">{{ profile.followingNumber }}</b>
               <span class="fs-small">Following</span>
             </div>
           </div>
@@ -50,7 +50,7 @@
       </div>
     </div>
 
-    <div class="pa-3 mt-3">
+    <div class="pa-3">
       <v-row class="all-posts">
         <v-col
           md="3"
